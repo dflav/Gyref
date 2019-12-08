@@ -1,13 +1,34 @@
 //* Wide Screens
 @include mediaXl {
+  .menu-wrap {
+    display: none;
+  }
 }
 
 //* Desktops &Laptops
 @include mediaLg {
+  .menu-wrap {
+    display: none;
+  }
+  .navbar {
+    padding: 0 3em;
+  }
 }
 
 //*Tablets & Small Laptops
 @include mediaMd {
+  .navbar {
+    padding: 0 3em;
+
+    .login-btn {
+      display: none;
+    }
+
+    .nav-links li {
+      display: block;
+      visibility: hidden;
+    }
+  }
 }
 
 //* Smartphones
