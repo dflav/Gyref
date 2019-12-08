@@ -19,14 +19,25 @@
 @include mediaMd {
   .navbar {
     padding: 0 3em;
+    background: $nav-bg-color;
+    display: block;
+
+    .off {
+      display: none;
+    }
 
     .login-btn {
       display: none;
     }
 
-    .nav-links li {
-      display: block;
-      visibility: hidden;
+    .nav-links {
+      padding: 1em;
+
+      li {
+        padding: 0.8rem;
+
+        display: block;
+      }
     }
   }
 }
