@@ -1,42 +1,25 @@
 //* Wide Screens
 @include mediaXl {
-  .menu-wrap {
-    display: none;
-  }
 }
 
 //* Desktops &Laptops
 @include mediaLg {
-  .menu-wrap {
-    display: none;
-  }
-  .navbar {
-    padding: 0 3em;
-  }
 }
 
 //*Tablets & Small Laptops
 @include mediaMd {
   .navbar {
-    padding: 0 3em;
-    background: $nav-bg-color;
-    display: block;
-
-    .off {
-      display: none;
-    }
-
-    .login-btn {
-      display: none;
-    }
-
-    .nav-links {
-      padding: 1em;
-
-      li {
-        padding: 0.8rem;
-
-        display: block;
+    nav {
+      .menu {
+        justify-content: center;
+        .logo {
+          flex: 1;
+        }
+        .item.button {
+          width: auto;
+          order: 1;
+          display: block;
+        }
       }
     }
   }

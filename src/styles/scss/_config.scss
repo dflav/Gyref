@@ -11,7 +11,7 @@ $nav-bg-color: #24252a;
   }
 }
 @mixin mediaMd {
-  @media screen and (max-width: 959px) {
+  @media screen and (min-width: 501px) {
     @content;
   }
 }

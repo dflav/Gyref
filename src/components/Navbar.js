@@ -1,53 +1,42 @@
-import React, { Component } from 'react';
-import Humburger from './Humburger';
+import React from 'react';
 
-class Navbar extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      toggle: false
-    };
-  }
-
-  updateNav = () => {
-    this.setState((prevState) => ({
-      toggle: !prevState.toggle
-    }));
-  };
-
-  render() {
-    return (
-      <>
-        <div className='navbar'>
-          <img
-            className='logo'
-            src='./images/cover.png'
-            alt='A person lifting weights'
-          />
-          <div className='menu-wrap'>
-            <Humburger toggle={this.updateNav} />
-          </div>
-          <nav className={this.state.toggle ? 'on' : 'off'}>
-            <ul className='nav-links'>
-              <li>
-                <a href='#!'>Home</a>
-              </li>
-              <li>
-                <a href='#!'>Workouts</a>
-              </li>
-              <li>
-                <a href='#!'>Exercises</a>
-              </li>
-            </ul>
-          </nav>
-          <a className='login-btn' href='#!'>
-            <button>Login</button>
-          </a>
-        </div>
-      </>
-    );
-  }
+function Navbar() {
+  return (
+    <div className='navbar' /*style={{this.state.animation}}*/>
+      <nav>
+        <ul className='menu'>
+          <li className='logo'>
+            <a href='#!'>
+              <img
+                className='logo'
+                src='./images/cover.png'
+                alt='Gyref background'
+              />
+            </a>
+          </li>
+          <li className='item '>
+            <a href='#!'>Home</a>
+          </li>
+          <li className='item'>
+            <a href='#!'>Workouts</a>
+          </li>
+          <li className='item'>
+            <a href='#!'>Exercises</a>
+          </li>
+          <li className='item button'>
+            <a href='#!'>Login</a>
+          </li>
+          <li className='item button secondary'>
+            <a href='#!'>Sing Up</a>
+          </li>
+          <li className='toggle'>
+            <input type='checkbox' className='toggler' />
+            <span className='bars'></span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
 }
 
 export default Navbar;
