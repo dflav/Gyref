@@ -10,15 +10,49 @@
 @include mediaMd {
   .navbar {
     nav {
+      transition: max-height 0.7s ease;
       .menu {
         justify-content: center;
         .logo {
           flex: 1;
         }
-        .item.button {
-          width: auto;
-          order: 1;
-          display: block;
+        .item {
+          &.button {
+            width: auto;
+            order: 1;
+            display: block;
+          }
+        }
+        .button {
+          padding-top: 0;
+          a {
+            padding: 0.3em 0.8em;
+            background: rgba(0, 136, 169, 1);
+            border: 1px solid
+              darken($color: $nav-items-secondary-color, $amount: 2);
+            border-radius: 50em;
+            transition: ease(background);
+
+            &:hover {
+              background: rgba(0, 136, 169, 0.8);
+              color: inherit;
+            }
+          }
+
+          &.secondary {
+            a {
+              background: transparent;
+              transition: ease(color);
+
+              &:hover {
+                color: #ddd;
+              }
+            }
+          }
+        }
+
+        .toggle {
+          order: 2;
         }
       }
     }

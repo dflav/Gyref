@@ -1,8 +1,9 @@
-$nav-items-color: #edf0f1;
+$nav-items-main-color: #edf0f1;
+$nav-items-secondary-color: #0088a9;
 $nav-bg-color: #24252a;
 
-@mixin ease {
-  transition: all 0.5s ease;
+@function ease($style) {
+  @return $style 0.5s ease;
 }
 
 @mixin mediaSm {

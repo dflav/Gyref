@@ -1,65 +1,3 @@
-// .navbar {
-//   background: $nav-bg-color;
-//
-
-//   z-index: 3;
-
-//     margin: auto;
-//     margin-left: 1.5em;
-//   }
-
-//   nav {
-//     .navlist {
-//    display: flex;
-//    flex-wrap: wrap;
-//    justify-content: space-between;
-//       list-style: none;
-
-//       .item {
-//         padding: 0.9rem 0;
-//         margin: 0 3em;
-//         width: 100%;
-//       }
-
-//     }
-//   }
-
-//   .hamburger {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     z-index: 1;
-//     width: 60px;
-//     height: 60px;
-//     padding: 1rem;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     margin: 0.6rem 1.5rem 0 0;
-
-//   .bars {
-
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//
-
-//   }
-// }
-//   .toggler {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     z-index: 2;
-//     cursor: pointer;
-//     width: 60px;
-//     height: 60px;
-//
-//     margin: 0.6rem 1.5rem 0 0;
-
-//   }
-// }
-
 .navbar {
   box-shadow: 1px 1px 4px 0 rgba($color: #222, $alpha: 0.1);
   position: fixed;
@@ -69,9 +7,8 @@
   nav {
     background: $nav-bg-color;
     padding: 0.4rem 1.25rem;
-    // overflow: hidden;
-    // max-height: 100px;
-    @include ease;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
 
     .menu {
       list-style: none;
@@ -90,16 +27,16 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
         font-size: 1rem;
-        color: $nav-items-color;
+        color: $nav-items-main-color;
         text-decoration: none;
       }
 
       a {
         display: block;
-        @include ease;
+        transition: ease(color);
 
         &:hover {
-          color: #0088a9;
+          color: $nav-items-secondary-color;
         }
       }
 
@@ -148,13 +85,13 @@
         .bars {
           height: 3px;
           display: inline-block;
-          background: $nav-items-color;
+          background: $nav-items-main-color;
           position: relative;
           width: 1.6rem;
           margin: 1.1rem 0 0.5rem 0.4rem;
 
           z-index: 1;
-          @include ease;
+          transition: ease(all);
 
           &::before,
           &::after {
