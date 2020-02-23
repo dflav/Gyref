@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
   constructor() {
@@ -18,32 +19,32 @@ class Navbar extends Component {
     const animation = { maxHeight: this.state.animation ? '410px' : '100px' };
 
     return (
-      <div className='navbar' /*style={{this.state.animation}}*/>
+      <div className='navbar'>
         <nav style={animation}>
           <ul className='menu'>
             <li className='logo'>
-              <a href='#!'>
+              <Link to='/'>
                 <img
-                  className='logo'
+                  className='logo_img'
                   src='./images/cover.png'
                   alt='Gyref background'
                 />
-              </a>
+              </Link>
             </li>
             <li className='item '>
-              <a href='#!'>Home</a>
+              <Link to='/'>Home</Link>
             </li>
             <li className='item'>
-              <a href='#!'>Workouts</a>
+              <Link to='/Workouts'>Workouts</Link>
             </li>
             <li className='item'>
-              <a href='#!'>Exercises</a>
+              <Link to='/Exercises'>Exercises</Link>
             </li>
             <li className='item button'>
-              <a href='#!'>Login</a>
+              <Link to='/Login'>Login</Link>
             </li>
             <li className='item button secondary'>
-              <a href='#!'>Sing Up</a>
+              <Link to='/Sing-up'>Sing Up</Link>
             </li>
             <li className='toggle'>
               <input

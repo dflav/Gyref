@@ -1,9 +1,98 @@
 //* Wide Screens
 @include mediaXl {
+  header {
+    .navbar {
+      nav {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        .menu {
+          li {
+            padding: 0 1.5rem;
+
+            &.button {
+              padding: 0 1rem;
+
+              &.secondary {
+                padding: 0 1rem;
+              }
+            }
+          }
+
+          .item {
+            margin: 0;
+            padding-top: 0;
+            display: block;
+            width: auto;
+            order: 1;
+
+            &:not(:nth-of-type(4)) {
+              border-bottom: none;
+            }
+
+            &.button {
+              order: 2;
+            }
+          }
+
+          .toggle {
+            display: none;
+          }
+
+          .logo {
+            order: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 //* Desktops &Laptops
 @include mediaLg {
+  header {
+    .navbar {
+      nav {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        .menu {
+          li {
+            padding: 0 1rem;
+            &.button {
+              padding: 0 0.5rem;
+
+              &.secondary {
+                padding: 0 0.5rem;
+              }
+            }
+          }
+
+          .item {
+            margin: 0;
+            padding-top: 0;
+            display: block;
+            width: auto;
+            order: 1;
+
+            &:not(:nth-of-type(4)) {
+              border-bottom: none;
+            }
+
+            &.button {
+              order: 2;
+            }
+          }
+
+          .toggle {
+            display: none;
+          }
+
+          .logo {
+            order: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 //*Tablets & Small Laptops
@@ -17,14 +106,17 @@
           flex: 1;
         }
         .item {
+          margin: 0 3em 0 3em;
           &.button {
             width: auto;
             order: 1;
             display: block;
+            border: none;
+            margin: 0;
           }
         }
         .button {
-          padding-top: 0;
+          padding: 0 0.5rem;
           a {
             padding: 0.3em 0.8em;
             background: rgba(0, 136, 169, 1);
@@ -40,12 +132,13 @@
           }
 
           &.secondary {
+            padding: 0 0.5rem;
             a {
               background: transparent;
               transition: ease(color);
 
               &:hover {
-                color: #ddd;
+                color: rgba(221, 221, 221, 0.767);
               }
             }
           }

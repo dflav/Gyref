@@ -6,6 +6,12 @@ $nav-bg-color: #24252a;
   @return $style 0.5s ease;
 }
 
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin mediaSm {
   @media screen and (max-width: 500px) {
     @content;
@@ -17,7 +23,7 @@ $nav-bg-color: #24252a;
   }
 }
 @mixin mediaLg {
-  @media screen and (min-width: 960px) and (max-width: 1170px) {
+  @media screen and (min-width: 860px) and (max-width: 1170px) {
     @content;
   }
 }

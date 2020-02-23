@@ -1,5 +1,6 @@
 @import 'config';
 @import 'navbar';
+@import 'exercises';
 
 * {
   box-sizing: border-box;
@@ -8,7 +9,8 @@
 }
 
 body,
-html {
+html,
+#root {
   height: 100%;
 }
 
@@ -18,6 +20,7 @@ html {
 
 body {
   line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .bg {

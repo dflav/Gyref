@@ -18,13 +18,16 @@
       align-items: center;
 
       .logo {
+        padding-top: 0.2em;
+      }
+
+      .logo_img {
         width: 12rem;
         padding-top: 0.2em;
       }
 
       li,
       a {
-        font-family: 'Montserrat', sans-serif;
         font-weight: 500;
         font-size: 1rem;
         color: $nav-items-main-color;
@@ -32,7 +35,6 @@
       }
 
       a {
-        display: block;
         transition: ease(color);
 
         &:hover {
@@ -40,22 +42,25 @@
         }
       }
 
-      li {
-        padding: 1rem 0.4rem;
-      }
       .item {
         width: 100%;
         order: 3;
+        margin: 0 3em 0 3em;
+        padding-top: 2rem;
 
         &.button {
           order: 2;
+        }
+
+        &:not(:nth-of-type(4)) {
+          border-bottom: #444 1px solid;
         }
       }
 
       .toggle {
         order: 1;
-        padding-top: 0;
-        padding-right: 2em;
+        padding: 0 2em 0.3em 0;
+
         .toggler {
           cursor: pointer;
           position: absolute;
@@ -89,7 +94,6 @@
           position: relative;
           width: 1.6rem;
           margin: 1.1rem 0 0.5rem 0.4rem;
-
           z-index: 1;
           transition: ease(all);
 
