@@ -78,7 +78,7 @@ export const exersices = [
   }
 ];
 
-export const types = [
+export const MuscleTypes = [
   {
     name: 'Chest',
     image: '/images/bg.jpg'
@@ -114,6 +114,40 @@ export const types = [
   },
   {
     name: 'hamstrings',
+    image: '/images/bg.jpg'
+  }
+];
+
+export const EquipmentTypes = [
+  {
+    name: 'Barbell',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'Dumbell',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'Body weight',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'Bench',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'Pull bar',
+    image: '/images/bg.jpg'
+  }
+];
+
+export const MechanicsTypes = [
+  {
+    name: 'Compound',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'Isolation',
     image: '/images/bg.jpg'
   }
 ];

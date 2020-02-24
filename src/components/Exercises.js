@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
-import { exersices, types } from '../constants/data';
+import {
+  exersices,
+  MuscleTypes,
+  EquipmentTypes,
+  MechanicsTypes
+} from '../constants/data';
 
 class Exercises extends Component {
   state = {
     data: [],
-    muscleTypes: [],
-    exerciseType: 'muscles'
+    muscles: [],
+    equipment: [],
+    mechanics: [],
+    menu: 'muscles'
   };
 
   componentDidMount() {
     this.setState({
       data: exersices,
-      muscleTypes: types
+      muscles: MuscleTypes,
+      equipment: EquipmentTypes,
+      mechanics: MechanicsTypes
     });
   }
 
-  handleClick = (exerciseType) => this.setState({ exerciseType });
+  handleClick = (menu) => this.setState({ menu });
 
   render() {
     return (
@@ -40,31 +49,31 @@ class Exercises extends Component {
 
             <ul className='ex-nav'>
               <OptionsList
-                isSelected={this.state.exerciseType === 'muscles'}
+                isSelected={this.state.menu === 'muscles'}
                 setExerciseType={() => this.handleClick('muscles')}
               >
                 <span>Muscles</span>
               </OptionsList>
               <OptionsList
-                isSelected={this.state.exerciseType === 'equipment'}
+                isSelected={this.state.menu === 'equipment'}
                 setExerciseType={() => this.handleClick('equipment')}
               >
                 <span>Equipment</span>
               </OptionsList>
               <OptionsList
-                isSelected={this.state.exerciseType === 'type'}
+                isSelected={this.state.menu === 'type'}
                 setExerciseType={() => this.handleClick('type')}
               >
                 <span>Type</span>
               </OptionsList>
             </ul>
             {this.state.data.length > 0 ? (
-              this.state.exerciseType === 'muscles' ? (
-                <MuscleMenu muscleTypes={this.state.muscleTypes} />
-              ) : this.state.exerciseType === 'equipment' ? (
-                <EquipmentMenu equipmentTypes={this.state.muscleTypes} />
-              ) : this.state.exerciseType === 'muscles' ? (
-                <MuscleMenu muscleTypes={this.state.muscleTypes} />
+              this.state.menu === 'muscles' ? (
+                <MuscleMenu muscleTypes={this.state.muscles} />
+              ) : this.state.menu === 'equipment' ? (
+                <EquipmentMenu equipmentTypes={this.state.equipment} />
+              ) : this.state.menu === 'type' ? (
+                <MechanicsMenu mechanicsTypes={this.state.mechanics} />
               ) : null
             ) : null}
           </div>
@@ -98,6 +107,18 @@ const EquipmentMenu = ({ equipmentTypes }) => {
   return (
     <div className='grid-container'>
       {equipmentTypes.map((item, index) => (
+        <div key={index}>
+          <img src={item.image} alt={`${item.name} category`} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const MechanicsMenu = ({ mechanicsTypes }) => {
+  return (
+    <div className='grid-container'>
+      {mechanicsTypes.map((item, index) => (
         <div key={index}>
           <img src={item.image} alt={`${item.name} category`} />
         </div>
