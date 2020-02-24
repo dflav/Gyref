@@ -1,14 +1,119 @@
-const exersices = [
+export const exersices = [
   {
     id: '1',
+    name: 'Bench Press',
     type: 'Strength',
     main: 'Chest',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
-    image: './image/bg.jpg',
+    image: '/images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '2',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: './images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '3',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: './images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '4',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: './images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '5',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: './images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '6',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: './images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '7',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: './images/bg.jpg',
     description: 'blah'
   }
 ];
 
-export default { exersices };
+export const types = [
+  {
+    name: 'Chest',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'back',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'arms',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'shoulders',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'quads',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'calves',
+    image: '/images/bg.jpg'
+  },
+
+  {
+    name: 'abs',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'forearms',
+    image: '/images/bg.jpg'
+  },
+  {
+    name: 'hamstrings',
+    image: '/images/bg.jpg'
+  }
+];

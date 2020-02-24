@@ -47,7 +47,7 @@
       height: 2px;
       border-bottom: 2px solid #0088a9;
       bottom: 0;
-      left: 45%;
+      left: 460px;
     }
   }
 
@@ -100,6 +100,18 @@
       span {
         padding: 0 1.5em;
       }
+    }
+  }
+
+  .grid-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 30px;
+
+    img {
+      max-height: 200px;
     }
   }
 }

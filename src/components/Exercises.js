@@ -1,37 +1,21 @@
 import React, { Component } from 'react';
-import exersices from '../constants/data';
+import { exersices, types } from '../constants/data';
+
 class Exercises extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: [],
-      active: 'muscles'
-    };
-  }
+  state = {
+    data: [],
+    muscleTypes: [],
+    exerciseType: 'muscles'
+  };
 
   componentDidMount() {
     this.setState({
-      data: exersices
+      data: exersices,
+      muscleTypes: types
     });
   }
 
-  handleClickMuscles = () => {
-    this.setState({
-      active: ''
-    });
-  };
-
-  handleClickEquipment = () => {
-    this.setState({
-      active: 'equipment'
-    });
-  };
-
-  handleClickType = () => {
-    this.setState({
-      active: 'type'
-    });
-  };
+  handleClick = (exerciseType) => this.setState({ exerciseType });
 
   render() {
     return (
@@ -55,31 +39,71 @@ class Exercises extends Component {
             </p>
 
             <ul className='ex-nav'>
-              <li
-                className={this.state.active === 'muscles' ? 'show' : 'hide'}
-                onClick={this.handleClickMuscles}
+              <OptionsList
+                isSelected={this.state.exerciseType === 'muscles'}
+                setExerciseType={() => this.handleClick('muscles')}
               >
                 <span>Muscles</span>
-              </li>
-              <li
-                className={this.state.active === 'equipment' ? 'show' : 'hide'}
-                onClick={this.handleClickEquipment}
+              </OptionsList>
+              <OptionsList
+                isSelected={this.state.exerciseType === 'equipment'}
+                setExerciseType={() => this.handleClick('equipment')}
               >
                 <span>Equipment</span>
-              </li>
-              <li
-                className={this.state.active === 'type' ? 'show' : 'hide'}
-                onClick={this.handleClickType}
+              </OptionsList>
+              <OptionsList
+                isSelected={this.state.exerciseType === 'type'}
+                setExerciseType={() => this.handleClick('type')}
               >
                 <span>Type</span>
-              </li>
+              </OptionsList>
             </ul>
-
-            <div className='grid-container'></div>
+            {this.state.data.length > 0 ? (
+              this.state.exerciseType === 'muscles' ? (
+                <MuscleMenu muscleTypes={this.state.muscleTypes} />
+              ) : this.state.exerciseType === 'equipment' ? (
+                <EquipmentMenu equipmentTypes={this.state.muscleTypes} />
+              ) : this.state.exerciseType === 'muscles' ? (
+                <MuscleMenu muscleTypes={this.state.muscleTypes} />
+              ) : null
+            ) : null}
           </div>
         </section>
       </>
     );
   }
 }
+
+const OptionsList = ({ isSelected, setExerciseType, children }) => {
+  return (
+    <li className={isSelected ? 'show' : 'hide'} onClick={setExerciseType}>
+      {children}
+    </li>
+  );
+};
+
+const MuscleMenu = ({ muscleTypes }) => {
+  return (
+    <div className='grid-container'>
+      {muscleTypes.map((item, index) => (
+        <div key={index}>
+          <img src={item.image} alt={`${item.name} category`} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const EquipmentMenu = ({ equipmentTypes }) => {
+  return (
+    <div className='grid-container'>
+      {equipmentTypes.map((item, index) => (
+        <div key={index}>
+          <img src={item.image} alt={`${item.name} category`} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export default Exercises;
