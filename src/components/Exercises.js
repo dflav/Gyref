@@ -5,9 +5,7 @@ class Exercises extends Component {
     super();
     this.state = {
       data: [],
-      muscles: true,
-      equipment: false,
-      type: false
+      active: 'muscles'
     };
   }
 
@@ -17,26 +15,22 @@ class Exercises extends Component {
     });
   }
 
-  handleClick = (props) => {
-    if (props === 'muscles') {
-      this.setState({
-        muscles: true,
-        equipment: false,
-        type: false
-      });
-    } else if (props === 'equipment') {
-      this.setState({
-        muscles: false,
-        equipment: true,
-        type: false
-      });
-    } else {
-      this.setState({
-        muscles: false,
-        equipment: false,
-        type: true
-      });
-    }
+  handleClickMuscles = () => {
+    this.setState({
+      active: ''
+    });
+  };
+
+  handleClickEquipment = () => {
+    this.setState({
+      active: 'equipment'
+    });
+  };
+
+  handleClickType = () => {
+    this.setState({
+      active: 'type'
+    });
   };
 
   render() {
@@ -62,20 +56,20 @@ class Exercises extends Component {
 
             <ul className='ex-nav'>
               <li
-                className={this.state.muscles ? 'show' : 'hide'}
-                onClick={(e) => this.handleClick('muscles', e)}
+                className={this.state.active === 'muscles' ? 'show' : 'hide'}
+                onClick={this.handleClickMuscles}
               >
                 <span>Muscles</span>
               </li>
               <li
-                className={this.state.equipment ? 'show' : 'hide'}
-                onClick={(e) => this.handleClick('equipment', e)}
+                className={this.state.active === 'equipment' ? 'show' : 'hide'}
+                onClick={this.handleClickEquipment}
               >
                 <span>Equipment</span>
               </li>
               <li
-                className={this.state.type ? 'show' : 'hide'}
-                onClick={(e) => this.handleClick('type', e)}
+                className={this.state.active === 'type' ? 'show' : 'hide'}
+                onClick={this.handleClickType}
               >
                 <span>Type</span>
               </li>
