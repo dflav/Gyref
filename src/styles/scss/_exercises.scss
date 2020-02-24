@@ -24,3 +24,82 @@
     font-size: 1rem;
   }
 }
+
+.types {
+  @include flexCenter;
+  margin: 5em;
+
+  p {
+    color: rgb(73, 73, 73);
+    text-align: center;
+    padding: 1.5em;
+  }
+
+  h4 {
+    position: relative;
+    text-align: center;
+    padding-bottom: 1.5em;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 2px;
+      border-bottom: 2px solid #0088a9;
+      bottom: 0;
+      left: 45%;
+    }
+  }
+
+  .ex-nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .show {
+      background-color: $nav-items-secondary-color;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 1em 0.5em;
+      padding: 0.2em 0;
+      border: 1px solid $nav-items-secondary-color;
+      color: white;
+
+      &:hover {
+        background-color: darken(
+          $color: $nav-items-secondary-color,
+          $amount: 3
+        );
+        transition: ease(background);
+      }
+
+      span {
+        padding: 0 1.5em;
+      }
+    }
+
+    .hide {
+      font-weight: 500;
+      font-size: 1rem;
+      color: rgb(104, 104, 104);
+      margin: 1em 0.5em;
+      padding: 0.2em 0;
+      border: 1px solid $nav-items-secondary-color;
+      border-radius: 30px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $nav-items-secondary-color;
+        color: white;
+        transition: ease(background);
+        box-shadow: 1px 1px 3px rgb(104, 104, 104);
+      }
+
+      span {
+        padding: 0 1.5em;
+      }
+    }
+  }
+}
