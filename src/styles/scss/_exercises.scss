@@ -47,7 +47,7 @@
       height: 2px;
       border-bottom: 2px solid #0088a9;
       bottom: 0;
-      left: 460px;
+      left: 46%;
     }
   }
 
@@ -110,8 +110,27 @@
     justify-items: center;
     grid-gap: 30px;
 
-    img {
-      max-height: 200px;
+    .img-container {
+      position: relative;
+      text-align: center;
+      color: white;
+      transition: ease(all);
+
+      &:hover {
+        opacity: 0.6;
+        cursor: pointer;
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      img {
+        max-height: 200px;
+      }
     }
   }
 }

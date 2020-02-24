@@ -1,4 +1,4 @@
-export const exersices = [
+export const Exersices = [
   {
     id: '1',
     name: 'Bench Press',

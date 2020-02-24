@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  exersices,
+  Exersices,
   MuscleTypes,
   EquipmentTypes,
   MechanicsTypes
@@ -17,7 +17,7 @@ class Exercises extends Component {
 
   componentDidMount() {
     this.setState({
-      data: exersices,
+      data: Exersices,
       muscles: MuscleTypes,
       equipment: EquipmentTypes,
       mechanics: MechanicsTypes
@@ -95,8 +95,9 @@ const MuscleMenu = ({ muscleTypes }) => {
   return (
     <div className='grid-container'>
       {muscleTypes.map((item, index) => (
-        <div key={index}>
+        <div key={index} className='img-container'>
           <img src={item.image} alt={`${item.name} category`} />
+          <span>Exercises for {`${item.name}`}</span>
         </div>
       ))}
     </div>
@@ -107,8 +108,9 @@ const EquipmentMenu = ({ equipmentTypes }) => {
   return (
     <div className='grid-container'>
       {equipmentTypes.map((item, index) => (
-        <div key={index}>
+        <div key={index} className='img-container'>
           <img src={item.image} alt={`${item.name} category`} />
+          <span>Exercises with {`${item.name}`}</span>
         </div>
       ))}
     </div>
@@ -119,8 +121,9 @@ const MechanicsMenu = ({ mechanicsTypes }) => {
   return (
     <div className='grid-container'>
       {mechanicsTypes.map((item, index) => (
-        <div key={index}>
+        <div key={index} className='img-container'>
           <img src={item.image} alt={`${item.name} category`} />
+          <span>{`${item.name} exercises `}</span>
         </div>
       ))}
     </div>
