@@ -1,4 +1,4 @@
-export const Exersices = [
+export const exersices = [
   {
     id: '1',
     name: 'Bench Press',
@@ -78,7 +78,7 @@ export const Exersices = [
   }
 ];
 
-export const MuscleTypes = [
+export const muscleTypes = [
   {
     name: 'Chest',
     image: '/images/bg.jpg'
@@ -118,7 +118,7 @@ export const MuscleTypes = [
   }
 ];
 
-export const EquipmentTypes = [
+export const equipmentTypes = [
   {
     name: 'Barbell',
     image: '/images/bg.jpg'
@@ -141,7 +141,7 @@ export const EquipmentTypes = [
   }
 ];
 
-export const MechanicsTypes = [
+export const mechanicsTypes = [
   {
     name: 'Compound',
     image: '/images/bg.jpg'
