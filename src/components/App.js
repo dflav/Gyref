@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/css/main.min.css';
 import Navbar from './Navbar';
-import Exercises from './Exercises/Exercises-info';
+import Exercises from './Exercises/Info';
 import Workouts from './Workouts';
+
 import Home from './Home';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 

@@ -84,36 +84,36 @@ export const muscleTypes = [
     image: '/images/bg.jpg'
   },
   {
-    name: 'back',
+    name: 'Back',
     image: '/images/bg.jpg'
   },
   {
-    name: 'arms',
+    name: 'Arms',
     image: '/images/bg.jpg'
   },
   {
-    name: 'shoulders',
+    name: 'Shoulders',
     image: '/images/bg.jpg'
   },
   {
-    name: 'quads',
+    name: 'Quads',
     image: '/images/bg.jpg'
   },
   {
-    name: 'calves',
+    name: 'Calves',
     image: '/images/bg.jpg'
   },
 
   {
-    name: 'abs',
+    name: 'Abs',
     image: '/images/bg.jpg'
   },
   {
-    name: 'forearms',
+    name: 'Forearms',
     image: '/images/bg.jpg'
   },
   {
-    name: 'hamstrings',
+    name: 'Hamstrings',
     image: '/images/bg.jpg'
   }
 ];
@@ -124,7 +124,7 @@ export const equipmentTypes = [
     image: '/images/bg.jpg'
   },
   {
-    name: 'Dumbell',
+    name: 'Dumbells',
     image: '/images/bg.jpg'
   },
   {
@@ -136,7 +136,7 @@ export const equipmentTypes = [
     image: '/images/bg.jpg'
   },
   {
-    name: 'Pull bar',
+    name: 'Pull-up bar',
     image: '/images/bg.jpg'
   }
 ];

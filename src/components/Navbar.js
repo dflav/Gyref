@@ -26,7 +26,7 @@ class Navbar extends Component {
               <Link to='/'>
                 <img
                   className='logo_img'
-                  src='./images/cover.png'
+                  src='/images/cover.png'
                   alt='Gyref background'
                 />
               </Link>
