@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
-import { exersices } from '../../constants/data';
+import { exersices, menuTypes } from '../../constants/data';
 class Selected extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      selectedType: props.match.params.id
-    };
-  }
+  state = {
+    data: [],
+    selectedType: this.props.match.params.id
+  };
 
   componentDidMount() {
     this.setState({ data: exersices });
   }
 
   render() {
-    console.log(this.props);
     return (
       <>
         <div className='info'>
           <div>
-            <SelectedMenu
-              selectedOption={this.props.menu}
-              selectedType={this.state.selectedType}
-            />
+            <SelectedMenu selectedType={this.state.selectedType} />
           </div>
         </div>
       </>
@@ -30,13 +23,20 @@ class Selected extends Component {
   }
 }
 
-const SelectedMenu = ({ selectedOption, selectedType }) => {
-  switch (selectedOption) {
+const SelectedMenu = ({ selectedType }) => {
+  const option = menuTypes.filter((item) => {
+    return item.name === selectedType;
+  });
+
+  switch (option[0].type) {
     case 'muscles':
       return (
         <>
           <h1>Exercises for {selectedType}</h1>
-          <p></p>
+          <p>
+            All {option[0].name} exercises with pictures and detailed
+            instruction about every
+          </p>
         </>
       );
     case 'equipment':

@@ -6,12 +6,9 @@ import Selected from './Selected';
 class Exercises extends Component {
   state = {
     menu: 'muscles'
-    //selectedType: ''
   };
 
   handleClickMenu = (menu) => this.setState({ menu });
-
-  //handleClickType = (selectedType) => this.setState({ selectedType });
 
   render() {
     return (
@@ -66,22 +63,13 @@ class Exercises extends Component {
             </>
           )}
         />
-        <Route
-          path='/Exercises/:id'
-          render={(props) => (
-            <Selected
-              //selectedType={this.state.selectedType}
-              menu={this.state.menu}
-              {...props}
-            />
-          )}
-        />
+        <Route path='/Exercises/:id' component={Selected} />
       </>
     );
   }
 }
 
-const SelectedMenu = ({ selectedOption, handleClick }) => {
+const SelectedMenu = ({ selectedOption }) => {
   switch (selectedOption) {
     case 'muscles':
       return <MuscleMenu />;
