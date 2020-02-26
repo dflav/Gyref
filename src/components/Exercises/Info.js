@@ -5,13 +5,13 @@ import Selected from './Selected';
 
 class Exercises extends Component {
   state = {
-    menu: 'muscles',
-    selectedType: ''
+    menu: 'muscles'
+    //selectedType: ''
   };
 
   handleClickMenu = (menu) => this.setState({ menu });
 
-  handleClickType = (selectedType) => this.setState({ selectedType });
+  //handleClickType = (selectedType) => this.setState({ selectedType });
 
   render() {
     return (
@@ -60,10 +60,7 @@ class Exercises extends Component {
                     </OptionsList>
                   </ul>
 
-                  <SelectedMenu
-                    selectedOption={this.state.menu}
-                    handleClick={this.handleClickType}
-                  />
+                  <SelectedMenu selectedOption={this.state.menu} />
                 </div>
               </section>
             </>
@@ -71,10 +68,11 @@ class Exercises extends Component {
         />
         <Route
           path='/Exercises/:id'
-          render={() => (
+          render={(props) => (
             <Selected
-              selectedType={this.state.selectedType}
+              //selectedType={this.state.selectedType}
               menu={this.state.menu}
+              {...props}
             />
           )}
         />
@@ -86,11 +84,11 @@ class Exercises extends Component {
 const SelectedMenu = ({ selectedOption, handleClick }) => {
   switch (selectedOption) {
     case 'muscles':
-      return <MuscleMenu handleClick={handleClick} />;
+      return <MuscleMenu />;
     case 'equipment':
-      return <EquipmentMenu handleClick={handleClick} />;
+      return <EquipmentMenu />;
     case 'type':
-      return <MechanicsMenu handleClick={handleClick} />;
+      return <MechanicsMenu />;
     default:
   }
 };

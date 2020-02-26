@@ -4,7 +4,8 @@ class Selected extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      selectedType: props.match.params.id
     };
   }
 
@@ -13,13 +14,14 @@ class Selected extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <>
         <div className='info'>
           <div>
             <SelectedMenu
               selectedOption={this.props.menu}
-              selectedType={this.props.selectedType}
+              selectedType={this.state.selectedType}
             />
           </div>
         </div>

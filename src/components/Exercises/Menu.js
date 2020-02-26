@@ -11,11 +11,7 @@ export const MuscleMenu = ({ handleClick }) => {
     <div className='grid-container'>
       {muscleTypes.map((item, index) => (
         <Link to={`/Exercises/${item.name}`} key={index}>
-          <div
-            key={index}
-            className='img-container'
-            onClick={() => handleClick(`${item.name}`)}
-          >
+          <div key={index} className='img-container'>
             <img src={item.image} alt={`${item.name} category`} />
             <span>Exercises for {`${item.name}`}</span>
           </div>
@@ -30,10 +26,7 @@ export const EquipmentMenu = ({ handleClick }) => {
     <div className='grid-container'>
       {equipmentTypes.map((item, index) => (
         <Link to={`/Exercises/${item.name}`} key={index}>
-          <div
-            className='img-container'
-            onClick={() => handleClick(`${item.name}`)}
-          >
+          <div className='img-container'>
             <img src={item.image} alt={`${item.name} category`} />
             <span>Exercises with {`${item.name}`}</span>
           </div>
@@ -48,11 +41,7 @@ export const MechanicsMenu = ({ handleClick }) => {
     <div className='grid-container'>
       {mechanicsTypes.map((item, index) => (
         <Link to={`/Exercises/${item.name}`} key={index}>
-          <div
-            key={index}
-            className='img-container'
-            onClick={() => handleClick(`${item.name}`)}
-          >
+          <div key={index} className='img-container'>
             <img src={item.image} alt={`${item.name} category`} />
             <span>{`${item.name} exercises `}</span>
           </div>
