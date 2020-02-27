@@ -5,7 +5,12 @@ import Exercises from './Exercises/Info';
 import Workouts from './Workouts';
 
 import Home from './Home';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -15,9 +20,12 @@ class App extends Component {
           <header>
             <Navbar />
           </header>
-          <Route path='/' exact component={Home} />
-          <Route path='/Exercises' component={Exercises} />
-          <Route path='/Workouts' component={Workouts} />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/Exercises' component={Exercises} />
+            <Route path='/Workouts' component={Workouts} />
+            <Redirect from='/:id' to='/' />
+          </Switch>
         </Router>
       </>
     );

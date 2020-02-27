@@ -1,60 +1,67 @@
 import React from 'react';
-import { menuTypes } from '../../constants/data';
+import { exercises, menuTypes } from '../../constants/data';
 import { Link } from 'react-router-dom';
 
-export const MuscleMenu = () => {
+export const Menu = ({ desiredType }) => {
   return (
     <div className='grid-container'>
-      {menuTypes
-        .filter((item) => {
-          return item.type === 'muscles';
+      {Object.entries(menuTypes)
+        .filter(([key, value]) => {
+          return value.type === desiredType;
         })
-        .map((item, index) => (
-          <Link to={`/Exercises/${item.name}`} key={index}>
-            <div key={index} className='img-container'>
-              <img src={item.image} alt={`${item.name} category`} />
-              <span>Exercises for {`${item.name}`}</span>
-            </div>
+        .map(([key, value], index) => (
+          <Link to={`/Exercises/${key}`} key={index}>
+            <MenuContent image={value.image} exerciseName={key} />
           </Link>
         ))}
     </div>
   );
 };
 
-export const EquipmentMenu = () => {
+export const ExerciseMenu = ({ desiredType, target }) => {
   return (
-    <div className='grid-container'>
-      {menuTypes
-        .filter((item) => {
-          return item.type === 'equipment';
-        })
-        .map((item, index) => (
-          <Link to={`/Exercises/${item.name}`} key={index}>
-            <div className='img-container'>
-              <img src={item.image} alt={`${item.name} category`} />
-              <span>Exercises with {`${item.name}`}</span>
-            </div>
-          </Link>
-        ))}
+    <div>
+      <div className='grid-container'>
+        {exercises
+          .filter((item) => {
+            switch (target) {
+              case 'muscles':
+                return item.name === desiredType;
+              case 'equipment':
+                return item.equipment === desiredType;
+              case 'type':
+                return item.mechanics === desiredType;
+              default:
+                return null;
+            }
+          })
+          .map((item, index) => (
+            <Link to={`/Exercises/${item.main}/${item.name}`} key={index}>
+              <ExerciseMenuContent
+                image={item.image}
+                exerciseName={item.name}
+              />
+            </Link>
+          ))}
+      </div>
     </div>
   );
 };
 
-export const MechanicsMenu = () => {
+const MenuContent = ({ image, exerciseName }) => {
   return (
-    <div className='grid-container'>
-      {menuTypes
-        .filter((item) => {
-          return item.type === 'type';
-        })
-        .map((item, index) => (
-          <Link to={`/Exercises/${item.name}`} key={index}>
-            <div key={index} className='img-container'>
-              <img src={item.image} alt={`${item.name} category`} />
-              <span>{`${item.name} exercises `}</span>
-            </div>
-          </Link>
-        ))}
+    <div className='img-container'>
+      <img src={image} alt={`${exerciseName} category`} />
+      <span>{`${exerciseName} exercises `}</span>
+    </div>
+  );
+};
+
+const ExerciseMenuContent = ({ image, exerciseName }) => {
+  return (
+    <div className='img-container'>
+      <img src={image} alt={`${exerciseName} exercise`} />
+      <span>{`${exerciseName} `}</span>
     </div>
   );
 };

@@ -1,60 +1,53 @@
 import React, { Component } from 'react';
-import { exersices, menuTypes } from '../../constants/data';
+import { menuTypes } from '../../constants/data';
+import { ExerciseMenu } from './Menu';
+import { Redirect, Link } from 'react-router-dom';
 class Selected extends Component {
   state = {
-    data: [],
     selectedType: this.props.match.params.id
   };
 
-  componentDidMount() {
-    this.setState({ data: exersices });
-  }
-
   render() {
+    if (!menuTypes.hasOwnProperty(this.state.selectedType))
+      return <Redirect to='/' />;
+    const targetObj = menuTypes[this.state.selectedType].type;
     return (
       <>
         <div className='info'>
           <div>
-            <SelectedMenu selectedType={this.state.selectedType} />
+            <h1>{this.state.selectedType} exercises</h1>
+            <p>
+              All {this.state.selectedType.toLowerCase()} exercises with
+              pictures and detailed instructions for every step to help you
+              improve your workout plan.
+            </p>
           </div>
         </div>
+
+        <section className='types'>
+          <div>
+            <h4>{this.state.selectedType} exercises</h4>
+            <p>aaaaaaaaaaaaaaaaa</p>
+            <ul className='ex-nav'>
+              <li className='hide'>
+                <span>aaaa</span>
+              </li>
+              <li className='hide'>
+                <span>bbbb</span>
+              </li>
+              <li className='hide'>
+                <span>cccc</span>
+              </li>
+            </ul>
+            <ExerciseMenu
+              desiredType={this.state.selectedType}
+              target={targetObj}
+            />
+          </div>
+        </section>
       </>
     );
   }
 }
-
-const SelectedMenu = ({ selectedType }) => {
-  const option = menuTypes.filter((item) => {
-    return item.name === selectedType;
-  });
-
-  switch (option[0].type) {
-    case 'muscles':
-      return (
-        <>
-          <h1>Exercises for {selectedType}</h1>
-          <p>
-            All {option[0].name} exercises with pictures and detailed
-            instruction about every
-          </p>
-        </>
-      );
-    case 'equipment':
-      return (
-        <>
-          <h1>Exercises with {selectedType}</h1>
-          <p></p>
-        </>
-      );
-    case 'type':
-      return (
-        <>
-          <h1>{selectedType} exercises</h1>
-          <p></p>
-        </>
-      );
-    default:
-  }
-};
 
 export default Selected;

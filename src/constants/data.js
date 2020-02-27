@@ -1,9 +1,10 @@
-export const exersices = [
+export const exercises = [
   {
     id: '1',
     name: 'Bench Press',
     type: 'Strength',
     main: 'Chest',
+    mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
@@ -15,10 +16,11 @@ export const exersices = [
     name: 'Bench Press',
     type: 'Strength',
     main: 'Chest',
+    mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
-    image: './images/bg.jpg',
+    image: '/images/bg.jpg',
     description: 'blah'
   },
   {
@@ -26,10 +28,11 @@ export const exersices = [
     name: 'Bench Press',
     type: 'Strength',
     main: 'Chest',
+    mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
-    image: './images/bg.jpg',
+    image: '/images/bg.jpg',
     description: 'blah'
   },
   {
@@ -37,10 +40,11 @@ export const exersices = [
     name: 'Bench Press',
     type: 'Strength',
     main: 'Chest',
+    mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
-    image: './images/bg.jpg',
+    image: '/images/bg.jpg',
     description: 'blah'
   },
   {
@@ -48,116 +52,138 @@ export const exersices = [
     name: 'Bench Press',
     type: 'Strength',
     main: 'Chest',
+    mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
-    image: './images/bg.jpg',
+    image: '/images/bg.jpg',
     description: 'blah'
   },
   {
     id: '6',
     name: 'Bench Press',
     type: 'Strength',
+    mechanics: 'Compound',
     main: 'Chest',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
-    image: './images/bg.jpg',
+    image: '/images/bg.jpg',
     description: 'blah'
   },
   {
     id: '7',
     name: 'Bench Press',
     type: 'Strength',
-    main: 'Chest',
+    main: 'Shoulder',
+    mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
     equipment: 'Barbell',
-    image: './images/bg.jpg',
+    image: '/images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '7',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Shoulder',
+    mechanics: 'Compound',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: '/images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '7',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Shoulder',
+    mechanics: 'Compound',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: '/images/bg.jpg',
+    description: 'blah'
+  },
+  {
+    id: '7',
+    name: 'Bench Press',
+    type: 'Strength',
+    main: 'Shoulder',
+    mechanics: 'Compound',
+    other: 'Triceps, Shoulders',
+    difficulty: 'Beginner',
+    equipment: 'Barbell',
+    image: '/images/bg.jpg',
     description: 'blah'
   }
 ];
 
-export const menuTypes = [
-  {
-    name: 'Chest',
+export const menuTypes = {
+  Chest: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Back',
+  Back: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Arms',
+  Arm: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Shoulders',
+  Shoulder: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Quads',
+  Quad: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Calves',
+  Calf: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-
-  {
-    name: 'Abs',
+  Ab: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Forearms',
+  Forearm: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Hamstrings',
+  Hamstring: {
     image: '/images/bg.jpg',
     type: 'muscles'
   },
-  {
-    name: 'Barbell',
+  Barbell: {
     image: '/images/bg.jpg',
     type: 'equipment'
   },
-  {
-    name: 'Dumbells',
+  Dumbell: {
     image: '/images/bg.jpg',
     type: 'equipment'
   },
-  {
-    name: 'Body weight',
+  'Body weight': {
     image: '/images/bg.jpg',
     type: 'equipment'
   },
-  {
-    name: 'Bench',
+  Bench: {
     image: '/images/bg.jpg',
     type: 'equipment'
   },
-  {
-    name: 'Pull-up bar',
+  'Pull-up bar': {
     image: '/images/bg.jpg',
     type: 'equipment'
   },
-  {
-    name: 'Compound',
+  Compound: {
     image: '/images/bg.jpg',
     type: 'type'
   },
-  {
-    name: 'Isolation',
+  Isolation: {
     image: '/images/bg.jpg',
     type: 'type'
   }
-];
+};

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MuscleMenu, EquipmentMenu, MechanicsMenu } from './Menu';
+import { Menu } from './Menu';
 import { Route } from 'react-router-dom';
 import Selected from './Selected';
 
@@ -56,8 +56,7 @@ class Exercises extends Component {
                       <span>Type</span>
                     </OptionsList>
                   </ul>
-
-                  <SelectedMenu selectedOption={this.state.menu} />
+                  <Menu desiredType={this.state.menu} />
                 </div>
               </section>
             </>
@@ -68,18 +67,6 @@ class Exercises extends Component {
     );
   }
 }
-
-const SelectedMenu = ({ selectedOption }) => {
-  switch (selectedOption) {
-    case 'muscles':
-      return <MuscleMenu />;
-    case 'equipment':
-      return <EquipmentMenu />;
-    case 'type':
-      return <MechanicsMenu />;
-    default:
-  }
-};
 
 const OptionsList = ({ isSelected, setExerciseType, children }) => {
   return (
