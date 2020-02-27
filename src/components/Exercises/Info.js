@@ -8,7 +8,7 @@ class Exercises extends Component {
     menu: 'muscles'
   };
 
-  handleClickMenu = (menu) => this.setState({ menu });
+  handleClick = (menu) => this.setState({ menu });
 
   render() {
     return (
@@ -39,19 +39,19 @@ class Exercises extends Component {
                   <ul className='ex-nav'>
                     <OptionsList
                       isSelected={this.state.menu === 'muscles'}
-                      setExerciseType={() => this.handleClickMenu('muscles')}
+                      setExerciseType={() => this.handleClick('muscles')}
                     >
                       <span>Muscles</span>
                     </OptionsList>
                     <OptionsList
                       isSelected={this.state.menu === 'equipment'}
-                      setExerciseType={() => this.handleClickMenu('equipment')}
+                      setExerciseType={() => this.handleClick('equipment')}
                     >
                       <span>Equipment</span>
                     </OptionsList>
                     <OptionsList
                       isSelected={this.state.menu === 'type'}
-                      setExerciseType={() => this.handleClickMenu('type')}
+                      setExerciseType={() => this.handleClick('type')}
                     >
                       <span>Type</span>
                     </OptionsList>
