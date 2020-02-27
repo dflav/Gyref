@@ -26,7 +26,7 @@ export const ExerciseMenu = ({ desiredType, target }) => {
           .filter((item) => {
             switch (target) {
               case 'muscles':
-                return item.name === desiredType;
+                return item.main === desiredType;
               case 'equipment':
                 return item.equipment === desiredType;
               case 'type':
@@ -61,7 +61,10 @@ const ExerciseMenuContent = ({ image, exerciseName }) => {
   return (
     <div className='img-container'>
       <img src={image} alt={`${exerciseName} exercise`} />
-      <span>{`${exerciseName} `}</span>
+      <span>
+        {`${exerciseName}`}
+        <button disabled>See the exercise</button>
+      </span>
     </div>
   );
 };

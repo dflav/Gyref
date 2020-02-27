@@ -27,16 +27,16 @@ class Selected extends Component {
         <section className='types'>
           <div>
             <h4>{this.state.selectedType} exercises</h4>
-            <p>aaaaaaaaaaaaaaaaa</p>
+            <p>info</p>
             <ul className='ex-nav'>
               <li className='hide'>
-                <span>aaaa</span>
+                <span>All</span>
               </li>
               <li className='hide'>
-                <span>bbbb</span>
+                <span>Barbell</span>
               </li>
               <li className='hide'>
-                <span>cccc</span>
+                <span>Body weight</span>
               </li>
             </ul>
             <ExerciseMenu
