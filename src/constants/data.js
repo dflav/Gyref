@@ -7,7 +7,7 @@ export const exercises = [
     mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
-    equipment: 'Barbell',
+    equipment: ['Barbell'],
     image: '/images/bg.jpg',
     description: 'blah'
   },
@@ -19,7 +19,7 @@ export const exercises = [
     mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
-    equipment: 'Barbell',
+    equipment: ['Barbell'],
     image: '/images/bg.jpg',
     description: 'blah'
   },
@@ -31,7 +31,7 @@ export const exercises = [
     mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
-    equipment: 'Barbell',
+    equipment: ['Barbell'],
     image: '/images/bg.jpg',
     description: 'blah'
   },
@@ -43,7 +43,7 @@ export const exercises = [
     mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
-    equipment: 'Barbell',
+    equipment: ['Barbell'],
     image: '/images/bg.jpg',
     description: 'blah'
   },
@@ -55,7 +55,7 @@ export const exercises = [
     mechanics: 'Compound',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
-    equipment: 'Barbell',
+    equipment: ['Barbell'],
     image: '/images/bg.jpg',
     description: 'blah'
   },
@@ -67,7 +67,7 @@ export const exercises = [
     main: 'Chest',
     other: 'Triceps, Shoulders',
     difficulty: 'Beginner',
-    equipment: 'Barbell',
+    equipment: ['Dumbell', 'Bench'],
     image: '/images/bg.jpg',
     description: 'blah'
   },
@@ -123,7 +123,7 @@ export const exercises = [
 
 export const menuTypes = {
   Chest: {
-    image: '/images/bg.jpg',
+    image: '/images/chest.jpg',
     type: 'muscles'
   },
   Back: {
@@ -135,7 +135,7 @@ export const menuTypes = {
     type: 'muscles'
   },
   Shoulder: {
-    image: '/images/bg.jpg',
+    image: '/images/shoulder.jpg',
     type: 'muscles'
   },
   Quad: {
@@ -155,7 +155,7 @@ export const menuTypes = {
     type: 'muscles'
   },
   Hamstring: {
-    image: '/images/bg.jpg',
+    image: '/images/hamstrigs.jpg',
     type: 'muscles'
   },
   Barbell: {

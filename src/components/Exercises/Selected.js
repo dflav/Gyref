@@ -92,6 +92,7 @@ class Selected extends Component {
               </ul>
             ) : null}
             <ExerciseMenu
+              filter={this.state.menu}
               desiredType={this.state.selectedType}
               target={targetObj}
             />
