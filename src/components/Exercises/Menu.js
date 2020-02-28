@@ -18,8 +18,8 @@ export const Menu = ({ desiredType }) => {
   );
 };
 
-export const ExerciseMenu = ({ desiredType, target, filter }) => {
-  let filterd = exercises.filter((item) => {
+export const ExerciseMenu = ({ desiredType, target, menu }) => {
+  let filtered = exercises.filter((item) => {
     switch (target) {
       case 'muscles':
         return item.main === desiredType;
@@ -32,8 +32,8 @@ export const ExerciseMenu = ({ desiredType, target, filter }) => {
     }
   });
 
-  if (filter !== 'All')
-    filterd = filterd.filter((item) => {
+  if (menu !== 'All')
+    filtered = filtered.filter((item) => {
       const key = item.equipment.includes(filter);
       return key === true;
     });
@@ -41,7 +41,7 @@ export const ExerciseMenu = ({ desiredType, target, filter }) => {
   return (
     <div>
       <div className='grid-container'>
-        {filterd.map((item, index) => (
+        {filtered.map((item, index) => (
           <Link to={`/Exercises/${item.main}/${item.name}`} key={index}>
             <ExerciseMenuContent image={item.image} exerciseName={item.name} />
           </Link>

@@ -35,27 +35,10 @@ class Exercises extends Component {
                     Learn about over a 100 exercises that exist in our database
                     by choosing one category below.
                   </p>
-
-                  <ul className='ex-nav'>
-                    <OptionsList
-                      isSelected={this.state.menu === 'muscles'}
-                      setExerciseType={() => this.handleClick('muscles')}
-                    >
-                      <span>Muscles</span>
-                    </OptionsList>
-                    <OptionsList
-                      isSelected={this.state.menu === 'equipment'}
-                      setExerciseType={() => this.handleClick('equipment')}
-                    >
-                      <span>Equipment</span>
-                    </OptionsList>
-                    <OptionsList
-                      isSelected={this.state.menu === 'type'}
-                      setExerciseType={() => this.handleClick('type')}
-                    >
-                      <span>Type</span>
-                    </OptionsList>
-                  </ul>
+                  <OptionsMenu
+                    menu={this.state.menu}
+                    setExerciseType={this.handleClick}
+                  />
                   <Menu desiredType={this.state.menu} />
                 </div>
               </section>
@@ -67,6 +50,24 @@ class Exercises extends Component {
     );
   }
 }
+
+const OptionsMenu = ({ menu, setExerciseType }) => {
+  const types = ['muscles', 'equipment', 'type'];
+
+  return (
+    <ul className='ex-nav'>
+      {types.map((item, index) => (
+        <OptionsList
+          key={index}
+          isSelected={menu === item}
+          setExerciseType={() => setExerciseType(`${item}`)}
+        >
+          <span>{item}</span>
+        </OptionsList>
+      ))}
+    </ul>
+  );
+};
 
 const OptionsList = ({ isSelected, setExerciseType, children }) => {
   return (

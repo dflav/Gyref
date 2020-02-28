@@ -33,66 +33,14 @@ class Selected extends Component {
             <h4>{this.state.selectedType} exercises</h4>
             <p>info info info</p>
 
-            {targetObj !== 'equipment' ? (
-              <ul className='ex-nav'>
-                <OptionsList
-                  isSelected={this.state.menu === 'All'}
-                  setExerciseType={() => this.handleClick('All')}
-                >
-                  <span>All</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Dumbell'}
-                  setExerciseType={() => this.handleClick('Dumbell')}
-                >
-                  <span>Dumbell</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Barbell'}
-                  setExerciseType={() => this.handleClick('Barbell')}
-                >
-                  <span>Barbell</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Machine'}
-                  setExerciseType={() => this.handleClick('Machine')}
-                >
-                  <span>Machine</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Bench'}
-                  setExerciseType={() => this.handleClick('Bench')}
-                >
-                  <span>Bench</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Body weigth'}
-                  setExerciseType={() => this.handleClick('Body weigth')}
-                >
-                  <span>Body weight</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Pull Bar'}
-                  setExerciseType={() => this.handleClick('Pull Bar')}
-                >
-                  <span>Pull Bar</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Cable'}
-                  setExerciseType={() => this.handleClick('Cable')}
-                >
-                  <span>Cable</span>
-                </OptionsList>
-                <OptionsList
-                  isSelected={this.state.menu === 'Plate'}
-                  setExerciseType={() => this.handleClick('Plate')}
-                >
-                  <span>Plate</span>
-                </OptionsList>
-              </ul>
-            ) : null}
+            {targetObj !== 'equipment' && (
+              <OptionsMenu
+                menu={this.state.menu}
+                setExerciseType={this.handleClick}
+              />
+            )}
             <ExerciseMenu
-              filter={this.state.menu}
+              menu={this.state.menu}
               desiredType={this.state.selectedType}
               target={targetObj}
             />
@@ -102,6 +50,34 @@ class Selected extends Component {
     );
   }
 }
+
+const OptionsMenu = ({ menu, setExerciseType }) => {
+  const types = [
+    'All',
+    'Dumbell',
+    'Barbell',
+    'Machine',
+    'Bench',
+    'Body weigth',
+    'Pull Bar',
+    'Cable',
+    'Plate'
+  ];
+
+  return (
+    <ul className='ex-nav'>
+      {types.map((item, index) => (
+        <OptionsList
+          key={index}
+          isSelected={menu === item}
+          setExerciseType={() => setExerciseType(`${item}`)}
+        >
+          <span>{item}</span>
+        </OptionsList>
+      ))}
+    </ul>
+  );
+};
 
 const OptionsList = ({ isSelected, setExerciseType, children }) => {
   return (
