@@ -23,14 +23,15 @@ class Selected extends Component {
             <p>
               All {this.state.selectedType.toLowerCase()} exercises with
               pictures and detailed instructions for every step to help you
-              improve your workout plan.
+              improve your workout plan.Select an exercise or log in to add it
+              to your workout.
             </p>
           </div>
         </div>
 
         <section className='types'>
           <div>
-            <h4>{this.state.selectedType} exercises</h4>
+            <h4> {this.state.selectedType.toUpperCase()} EXERCISES</h4>
             <p>info info info</p>
 
             {targetObj !== 'equipment' && (
@@ -54,7 +55,7 @@ class Selected extends Component {
 const OptionsMenu = ({ menu, setExerciseType }) => {
   const types = [
     'All',
-    'Dumbell',
+    'Dumbbell',
     'Barbell',
     'Machine',
     'Bench',

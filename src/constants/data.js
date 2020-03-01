@@ -1,122 +1,13 @@
 export const exercises = [
   {
-    id: '1',
     name: 'Bench Press',
     type: 'Strength',
     main: 'Chest',
-    mechanics: 'Compound',
     other: 'Triceps, Shoulders',
+    mechanics: 'Compound',
     difficulty: 'Beginner',
     equipment: ['Barbell'],
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '2',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Chest',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: ['Barbell'],
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '3',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Chest',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: ['Barbell'],
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '4',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Chest',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: ['Barbell'],
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '5',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Chest',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: ['Barbell'],
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '6',
-    name: 'Bench Press',
-    type: 'Strength',
-    mechanics: 'Compound',
-    main: 'Chest',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: ['Dumbell', 'Bench'],
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '7',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Shoulder',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: 'Barbell',
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '7',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Shoulder',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: 'Barbell',
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '7',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Shoulder',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: 'Barbell',
-    image: '/images/bg.jpg',
-    description: 'blah'
-  },
-  {
-    id: '7',
-    name: 'Bench Press',
-    type: 'Strength',
-    main: 'Shoulder',
-    mechanics: 'Compound',
-    other: 'Triceps, Shoulders',
-    difficulty: 'Beginner',
-    equipment: 'Barbell',
-    image: '/images/bg.jpg',
+    image: '/images/flat-bench-press.jpg',
     description: 'blah'
   }
 ];
@@ -124,66 +15,78 @@ export const exercises = [
 export const menuTypes = {
   Chest: {
     image: '/images/chest.jpg',
-    type: 'muscles'
+    type: 'Muscles'
   },
   Back: {
-    image: '/images/bg.jpg',
-    type: 'muscles'
+    image: '/images/back.jpg',
+    type: 'Muscles'
   },
   Arm: {
-    image: '/images/bg.jpg',
-    type: 'muscles'
+    image: '/images/arms.jpg',
+    type: 'Muscles'
   },
   Shoulder: {
     image: '/images/shoulder.jpg',
-    type: 'muscles'
+    type: 'Muscles'
   },
   Quad: {
-    image: '/images/bg.jpg',
-    type: 'muscles'
+    image: '/images/quad.jpeg',
+    type: 'Muscles'
   },
   Calf: {
-    image: '/images/bg.jpg',
-    type: 'muscles'
+    image: '/images/calves.jpg',
+    type: 'Muscles'
   },
   Ab: {
-    image: '/images/bg.jpg',
-    type: 'muscles'
+    image: '/images/abs.jpeg',
+    type: 'Muscles'
   },
   Forearm: {
-    image: '/images/bg.jpg',
-    type: 'muscles'
+    image: '/images/forearm.jpg',
+    type: 'Muscles'
   },
   Hamstring: {
     image: '/images/hamstrigs.jpg',
-    type: 'muscles'
+    type: 'Muscles'
   },
   Barbell: {
-    image: '/images/bg.jpg',
-    type: 'equipment'
+    image: '/images/Barbell.jpg',
+    type: 'Equipment'
   },
-  Dumbell: {
-    image: '/images/bg.jpg',
-    type: 'equipment'
+  Dumbbell: {
+    image: '/images/dumbbell.jpg',
+    type: 'Equipment'
   },
   'Body weight': {
-    image: '/images/bg.jpg',
-    type: 'equipment'
+    image: '/images/bodyw.jpg',
+    type: 'Equipment'
   },
   Bench: {
-    image: '/images/bg.jpg',
-    type: 'equipment'
+    image: '/images/bench.jpg',
+    type: 'Equipment'
   },
   'Pull-up bar': {
-    image: '/images/bg.jpg',
-    type: 'equipment'
+    image: '/images/pullbar.jpeg',
+    type: 'Equipment'
+  },
+  Machine: {
+    image: '/images/machines.jpg',
+    type: 'Equipment'
+  },
+  Cable: {
+    image: '/images/cable.jpg',
+    type: 'Equipment'
+  },
+  Plate: {
+    image: '/images/plates.jpg',
+    type: 'Equipment'
   },
   Compound: {
-    image: '/images/bg.jpg',
-    type: 'type'
+    image: '/images/compound.jpg',
+    type: 'Type'
   },
   Isolation: {
-    image: '/images/bg.jpg',
-    type: 'type'
+    image: '/images/isolation.jpg',
+    type: 'Type'
   }
 };

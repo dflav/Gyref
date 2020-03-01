@@ -21,11 +21,11 @@ export const Menu = ({ desiredType }) => {
 export const ExerciseMenu = ({ desiredType, target, menu }) => {
   let filtered = exercises.filter((item) => {
     switch (target) {
-      case 'muscles':
+      case 'Muscles':
         return item.main === desiredType;
-      case 'equipment':
+      case 'Equipment':
         return item.equipment.includes(desiredType);
-      case 'type':
+      case 'Type':
         return item.mechanics === desiredType;
       default:
         return null;
@@ -34,7 +34,7 @@ export const ExerciseMenu = ({ desiredType, target, menu }) => {
 
   if (menu !== 'All')
     filtered = filtered.filter((item) => {
-      const key = item.equipment.includes(filter);
+      const key = item.equipment.includes(menu);
       return key === true;
     });
 
@@ -65,8 +65,9 @@ const ExerciseMenuContent = ({ image, exerciseName }) => {
     <div className='img-container'>
       <img src={image} alt={`${exerciseName} exercise`} />
       <span>
-        {`${exerciseName}`}
+        {exerciseName}
         <button disabled>See the exercise</button>
+        <button disabled>Add to a workout</button>
       </span>
     </div>
   );

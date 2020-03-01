@@ -5,7 +5,7 @@ import Selected from './Selected';
 
 class Exercises extends Component {
   state = {
-    menu: 'muscles'
+    menu: 'Muscles'
   };
 
   handleClick = (menu) => this.setState({ menu });
@@ -52,7 +52,7 @@ class Exercises extends Component {
 }
 
 const OptionsMenu = ({ menu, setExerciseType }) => {
-  const types = ['muscles', 'equipment', 'type'];
+  const types = ['Muscles', 'Equipment', 'Type'];
 
   return (
     <ul className='ex-nav'>
