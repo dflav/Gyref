@@ -33,12 +33,15 @@
     color: rgb(73, 73, 73);
     text-align: center;
     padding: 1.5em;
+    max-width: 800px;
+    margin: auto;
   }
 
-  h4 {
+  h2 {
     position: relative;
     text-align: center;
-    padding-bottom: 1.5em;
+    padding-bottom: 1.2em;
+    font-weight: 500;
 
     &::after {
       content: '';
@@ -118,25 +121,112 @@
       text-align: center;
       color: white;
       transition: ease(all);
+      max-height: 220px;
+      background: $nav-bg-color;
+      overflow: hidden;
 
       &:hover {
-        opacity: 0.6;
         cursor: pointer;
+
+        img {
+          opacity: 0.4;
+          transform: scale(1.2);
+        }
+
+        span {
+          display: block;
+        }
       }
 
       span {
+        transition: ease(all);
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        font-weight: bolder;
         width: 100%;
-        font-weight: bolders;
+        font-weight: 500;
+        display: none;
+
+        button {
+          transition: ease(all);
+          border: 1px solid transparent;
+          background-color: rgba(255, 255, 255, 0.12);
+          border-radius: 30px;
+          padding: 10px 1.5em;
+          color: rgba(255, 255, 255, 0.89);
+          font-weight: bold;
+          font-size: 13px;
+          display: inline-block;
+          margin: 2em 6px 6px 6px;
+          cursor: pointer;
+
+          &:hover:not([disabled]) {
+            background-color: rgba(255, 255, 255, 0.3);
+          }
+        }
       }
 
       img {
+        transition: ease(all);
         height: 220px;
         width: 320px;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.title {
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  color: $nav-bg-color;
+}
+
+.d-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+
+  img {
+    margin-right: 4rem;
+    height: 350px;
+    width: 600px;
+  }
+
+  .d-info {
+    justify-self: center;
+    align-self: center;
+    font-weight: 600;
+    font-size: 17px;
+
+    h2 {
+      border-bottom: 2px solid #0088a9;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: $nav-bg-color;
+    }
+    span {
+      font-weight: bolder;
+      color: #026c86;
+    }
+
+    button {
+      padding: 8px;
+      background-color: white;
+      border: 1px solid #0088a9;
+      border-radius: 10px;
+      margin-top: 1em;
+      color: #0088a9;
+      cursor: pointer;
+
+      &:hover {
+        background-color: gray;
+        border-color: gray;
+        color: white;
       }
     }
   }

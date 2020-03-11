@@ -1,6 +1,6 @@
 export const exercises = [
   {
-    name: 'Bench Press',
+    name: 'Barbell Bench Press',
     type: 'Strength',
     main: 'Chest',
     other: 'Triceps, Shoulders',
@@ -9,13 +9,37 @@ export const exercises = [
     equipment: ['Barbell'],
     image: '/images/flat-bench-press.jpg',
     description: 'blah'
+  },
+  {
+    name: 'Dips',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    mechanics: 'Compound',
+    difficulty: 'Beginner',
+    equipment: ['Body weight', 'Plate'],
+    image: '/images/dips.jpg',
+    description: 'blah'
+  },
+  {
+    name: 'Incline Chest Flys',
+    type: 'Strength',
+    main: 'Chest',
+    other: 'Triceps, Shoulders',
+    mechanics: 'Isolation',
+    difficulty: 'Beginner',
+    equipment: ['Dumbbell'],
+    image: '/images/incline-chest-fly.jpg',
+    description: 'blah'
   }
 ];
 
 export const menuTypes = {
   Chest: {
     image: '/images/chest.jpg',
-    type: 'Muscles'
+    type: 'Muscles',
+    info:
+      'To build a big chest you have to target the chest muscles from different angles.Both incline, decline and flat exercises help for building big and strong pecks targeting the muscles from every angle.'
   },
   Back: {
     image: '/images/back.jpg',

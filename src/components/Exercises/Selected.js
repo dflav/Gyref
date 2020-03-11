@@ -14,7 +14,7 @@ class Selected extends Component {
     if (!menuTypes.hasOwnProperty(this.state.selectedType))
       return <Redirect to='/' />;
     const targetObj = menuTypes[this.state.selectedType].type;
-    console.log(this.state.menu);
+
     return (
       <>
         <div className='info'>
@@ -31,8 +31,8 @@ class Selected extends Component {
 
         <section className='types'>
           <div>
-            <h4> {this.state.selectedType.toUpperCase()} EXERCISES</h4>
-            <p>info info info</p>
+            <h2> {this.state.selectedType.toUpperCase()} EXERCISES</h2>
+            <p>{menuTypes[this.state.selectedType].info}</p>
 
             {targetObj !== 'equipment' && (
               <OptionsMenu
@@ -59,7 +59,7 @@ const OptionsMenu = ({ menu, setExerciseType }) => {
     'Barbell',
     'Machine',
     'Bench',
-    'Body weigth',
+    'Body weight',
     'Pull Bar',
     'Cable',
     'Plate'

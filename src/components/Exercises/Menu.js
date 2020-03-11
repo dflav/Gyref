@@ -62,11 +62,16 @@ const MenuContent = ({ image, exerciseName }) => {
 
 const ExerciseMenuContent = ({ image, exerciseName }) => {
   return (
-    <div className='img-container'>
-      <img src={image} alt={`${exerciseName} exercise`} />
+    <div className='img-container' style={{ cursor: 'auto' }}>
+      <img
+        style={{ transform: 'scale(1)' }}
+        src={image}
+        alt={`${exerciseName} exercise`}
+      />
       <span>
         {exerciseName}
-        <button disabled>See the exercise</button>
+        <br />
+        <button>See the exercise</button>
         <button disabled>Add to a workout</button>
       </span>
     </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from './Menu';
 import { Route } from 'react-router-dom';
-import Selected from './Selected';
 
 class Exercises extends Component {
   state = {
@@ -30,10 +29,12 @@ class Exercises extends Component {
               </div>
               <section className='types'>
                 <div>
-                  <h4>CHOOSE AN EXERCISE TYPE</h4>
+                  <h2>CHOOSE AN EXERCISE TYPE</h2>
                   <p>
                     Learn about over a 100 exercises that exist in our database
                     by choosing one category below.
+                    <br />
+                    Hover in each picture and click to see the exercises!
                   </p>
                   <OptionsMenu
                     menu={this.state.menu}
@@ -45,7 +46,6 @@ class Exercises extends Component {
             </>
           )}
         />
-        <Route path='/Exercises/:id' component={Selected} />
       </>
     );
   }
