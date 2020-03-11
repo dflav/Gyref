@@ -30,6 +30,11 @@ class App extends Component {
             <Route path='/Workouts' component={Workouts} />
             <Redirect from='/:id' to='/' />
           </Switch>
+          <footer>
+            <div>
+              &copy; 2020 Copyright: <span>Flavio Dollani</span>
+            </div>
+          </footer>
         </Router>
       </>
     );

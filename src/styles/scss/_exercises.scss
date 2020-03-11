@@ -231,3 +231,23 @@
     }
   }
 }
+
+.instructions {
+  width: 50%;
+  margin: 3em auto;
+
+  h2 {
+    border-left: 2px solid #0088a9;
+    padding: 9px 1em;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-weight: 400;
+  }
+
+  li {
+    color: #494949;
+    line-height: 2em;
+    margin-left: 1em;
+  }
+}

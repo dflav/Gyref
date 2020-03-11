@@ -43,6 +43,16 @@ const Details = (props) => {
           <button>+ Add to Routine</button>
         </div>
       </div>
+      <div className='instructions'>
+        <h2>How to perform the exercise</h2>
+        <br />
+        <ul>
+          {choice[0].description.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      {/* <div className='More'>More exercises</div> */}
     </>
   );
 };
