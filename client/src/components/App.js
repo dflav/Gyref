@@ -10,8 +10,8 @@ import Home from './Home';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
+  // Redirect
 } from 'react-router-dom';
 
 class App extends Component {
@@ -33,7 +33,7 @@ class App extends Component {
               component={ExerciseDetails}
             />
             <Route path='/Workouts' component={Workouts} />
-            <Redirect from='/:id' to='/' />
+            {/* <Redirect from='/:id' to='/' /> */}
           </Switch>
           <footer>
             <div>

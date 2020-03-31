@@ -1,9 +1,6 @@
 import { exercises } from '../../constants/data';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import Figure from 'react-bootstrap/Figure';
-import FigureImage from 'react-bootstrap/FigureImage';
-import FigureCaption from 'react-bootstrap/FigureCaption';
 
 const ExerciseDetails = props => {
   const exercise = props.match.params.idb;
@@ -67,7 +64,7 @@ const ExerciseDetails = props => {
       </div>
       <div>
         More {muscle.toLowerCase()} exercises
-        <div className='more-container'>
+        {/* <div className='more-container'>
           {random.map((item, i) => (
             <Figure key={i}>
               <FigureImage
@@ -85,7 +82,7 @@ const ExerciseDetails = props => {
               </FigureCaption>
             </Figure>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

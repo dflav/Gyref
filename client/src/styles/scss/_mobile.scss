@@ -1,10 +1,13 @@
 //* Wide Screens
 @include mediaXl {
   header {
-    .navbar {
+    .navbar_container {
       nav {
         padding-left: 3rem;
         padding-right: 3rem;
+        ul {
+          margin: 0;
+        }
         .menu {
           li {
             padding: 0 1.5rem;
@@ -50,10 +53,13 @@
 //* Desktops &Laptops
 @include mediaLg {
   header {
-    .navbar {
+    .navbar_container {
       nav {
         padding-left: 3rem;
         padding-right: 3rem;
+        ul {
+          margin: 0;
+        }
         .menu {
           li {
             padding: 0 1rem;
@@ -97,7 +103,7 @@
 
 //*Tablets & Small Laptops
 @include mediaMd {
-  .navbar {
+  .navbar_container {
     nav {
       transition: max-height 0.7s ease;
       .menu {

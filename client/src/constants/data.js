@@ -6,7 +6,7 @@ export const exercises = [
     other: 'Triceps, Shoulders',
     mechanics: 'Compound',
     difficulty: 'Beginner',
-    equipment: ['Barbell'],
+    equipment: ['Barbell', 'Bench'],
     image: '/images/flat-bench-press.jpg',
     description: [
       'Lie with your back flat on a bench with your feet  on the ground and the bar resting on the bench’s rack.',

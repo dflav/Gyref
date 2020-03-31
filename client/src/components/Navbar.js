@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Register from './Auth/Register';
 
 class Navbar extends Component {
   constructor() {
     super();
 
     this.state = {
-      animation: false
+      animation: false,
+      show: false
     };
   }
 
   handleChange = () => {
-    this.setState(prevState => {
-      return { animation: !prevState.animation };
-    });
+    this.setState(prevState => ({
+      animation: !prevState.animation
+    }));
   };
+
+  handleRegister = () => {
+    this.setState(prevState => ({
+      show: !prevState.show
+    }));
+  };
+
   render() {
     const animation = { maxHeight: this.state.animation ? '410px' : '100px' };
 
     return (
-      <div className='navbar'>
+      <div className='navbar_container'>
         <nav style={animation}>
           <ul className='menu'>
             <li className='logo'>
@@ -67,10 +76,10 @@ class Navbar extends Component {
               </NavLink>
             </li>
             <li className='item button'>
-              <NavLink to='/Login'>Login</NavLink>
+              <NavLink to='#'>Login</NavLink>
             </li>
-            <li className='item button secondary'>
-              <NavLink to='/Sing-up'>Sing Up</NavLink>
+            <li className='item button secondary' onClick={this.handleRegister}>
+              <NavLink to='#'>Sing Up</NavLink>
             </li>
             <li className='toggle'>
               <input
@@ -82,6 +91,9 @@ class Navbar extends Component {
             </li>
           </ul>
         </nav>
+        {this.state.show ? (
+          <Register show={this.state.show} handleClose={this.handleRegister} />
+        ) : null}
       </div>
     );
   }
