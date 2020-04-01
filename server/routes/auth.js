@@ -8,7 +8,7 @@ router.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
   //validate user
   const { error } = validRegister(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send(error.details[0].message, req.body);
 
   //check if user exists
   const user = await User.findOne({ email });

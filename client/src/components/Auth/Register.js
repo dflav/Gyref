@@ -6,6 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Alert from '@material-ui/lab/Alert';
 import axios from 'axios';
 
 class Register extends Component {
@@ -22,29 +23,31 @@ class Register extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
-    this.props.handleClose();
 
     const { name, email, password } = this.state;
 
+    const config = { headers: { 'Content-Type': 'application/json' } };
+
     const body = JSON.stringify({ name, email, password });
-    console.log(body);
-    let res = await axios.post('http://localhost:5000/api/user/register', body);
-    console.log(res.data);
+
+    try {
+      const res = await axios.post('/api/user/register', body, config);
+      console.log(res.body);
+      this.props.handleClose();
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log('Status ' + error.response.status);
+        this.setState({
+          msg: error.response.data
+        });
+      }
+    }
   };
 
-  onChangeName = e => {
+  onChange = e => {
     this.setState({
-      name: e.target.value
-    });
-  };
-  onChangeEmail = e => {
-    this.setState({
-      email: e.target.value
-    });
-  };
-  onChangePassword = e => {
-    this.setState({
-      password: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -64,6 +67,7 @@ class Register extends Component {
           </DialogTitle>
           <form onSubmit={this.onSubmit}>
             <DialogContent>
+              <Alert severity='error'>{this.state.msg}</Alert>
               <DialogContentText style={{ paddingTop: '1em' }}>
                 To create an account, please enter your email address and your
                 password here.Then you will be able to save and log workouts and
@@ -76,27 +80,30 @@ class Register extends Component {
                 id='name'
                 label='Name'
                 type='text'
+                name='name'
                 required
                 fullWidth
-                onChange={this.onChangeName}
+                onChange={this.onChange}
               />
               <TextField
                 margin='normal'
                 id='email'
                 label='Email Address'
                 type='email'
+                name='email'
                 required
                 fullWidth
-                onChange={this.onChangeEmail}
+                onChange={this.onChange}
               />
               <TextField
                 margin='normal'
                 id='password'
                 label='Password'
                 type='password'
+                name='password'
                 required
                 fullWidth
-                onChange={this.onChangePassword}
+                onChange={this.onChange}
               />
             </DialogContent>
             <DialogActions>
