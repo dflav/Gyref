@@ -7,11 +7,13 @@ import ChooseExercise from './Exercises/ChooseExercise';
 import ExerciseDetails from './Exercises/ExerciseDetails';
 import ScrollToTop from './ScrollToTop';
 import Home from './Home';
+import Auth from './Auth/Auth';
+import Profile from './Profile';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
-  // Redirect
+  Switch,
+  Redirect,
 } from 'react-router-dom';
 
 class App extends Component {
@@ -33,7 +35,10 @@ class App extends Component {
               component={ExerciseDetails}
             />
             <Route path='/Workouts' component={Workouts} />
-            {/* <Redirect from='/:id' to='/' /> */}
+            <Auth>
+              <Route path='/Profile' component={Profile} />
+            </Auth>
+            <Redirect from='/:id' to='/' />
           </Switch>
           <footer>
             <div>

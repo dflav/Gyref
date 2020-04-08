@@ -1,27 +1,57 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Register from './Auth/Register';
+import Login from './Auth/Login';
 
 class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       animation: false,
-      show: false
+      showLogin: false,
+      showRegister: false,
+      logged_in: false,
     };
   }
 
+  componentDidMount() {
+    const jwt = localStorage.getItem('jwt-token');
+    if (!jwt) {
+      this.setState({ logged_in: false });
+    } else {
+      this.setState({ logged_in: true });
+    }
+  }
+
   handleChange = () => {
-    this.setState(prevState => ({
-      animation: !prevState.animation
+    this.setState((prevState) => ({
+      animation: !prevState.animation,
     }));
   };
 
   handleRegister = () => {
-    this.setState(prevState => ({
-      show: !prevState.show
+    this.setState((prevState) => ({
+      showRegister: !prevState.showRegister,
     }));
+  };
+  handleLogin = () => {
+    this.setState((prevState) => ({
+      showLogin: !prevState.showLogin,
+    }));
+
+    if (this.state.showLogin === false) {
+      const jwt = localStorage.getItem('jwt-token');
+      if (!jwt) {
+        this.setState({ logged_in: false });
+      } else {
+        this.setState({ logged_in: true });
+      }
+    }
+  };
+  handleLogout = () => {
+    localStorage.removeItem('jwt-token');
+    this.setState({ logged_in: false });
   };
 
   render() {
@@ -47,7 +77,7 @@ class Navbar extends Component {
                   to='/'
                   activeStyle={{
                     fontWeight: 'bold',
-                    color: '#0088a9'
+                    color: '#0088a9',
                   }}
                 >
                   Home
@@ -59,7 +89,7 @@ class Navbar extends Component {
                   to='/Workouts'
                   activeStyle={{
                     fontWeight: 'bold',
-                    color: '#0088a9'
+                    color: '#0088a9',
                   }}
                 >
                   Workouts
@@ -70,21 +100,38 @@ class Navbar extends Component {
                   to='/Exercises'
                   activeStyle={{
                     fontWeight: 'bold',
-                    color: '#0088a9'
+                    color: '#0088a9',
                   }}
                 >
                   Exercises
                 </NavLink>
               </li>
-              <li className='item button'>
-                <NavLink to='#'>Login</NavLink>
-              </li>
-              <li
-                className='item button secondary'
-                onClick={this.handleRegister}
-              >
-                <NavLink to='#'>Sing Up</NavLink>
-              </li>
+              {this.state.logged_in === false ? (
+                <>
+                  <li className='item button' onClick={this.handleLogin}>
+                    <NavLink to='#'>Login</NavLink>
+                  </li>
+                  <li
+                    className='item button secondary'
+                    onClick={this.handleRegister}
+                  >
+                    <NavLink to='#'>Sing Up</NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className='item button'>
+                    <NavLink to='/Profile'>Profile</NavLink>
+                  </li>
+                  <li
+                    className='item button secondary'
+                    onClick={this.handleLogout}
+                  >
+                    <NavLink to='/'>Log out</NavLink>
+                  </li>
+                </>
+              )}
+
               <li className='toggle'>
                 <input
                   onClick={this.handleChange}
@@ -96,7 +143,11 @@ class Navbar extends Component {
             </ul>
           </nav>
         </div>
-        <Register show={this.state.show} handleClose={this.handleRegister} />
+        <Register
+          show={this.state.showRegister}
+          handleClose={this.handleRegister}
+        />
+        <Login show={this.state.showLogin} handleClose={this.handleLogin} />
       </>
     );
   }

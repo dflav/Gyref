@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../model/User');
 const { validRegister, validLogin } = require('../validation');
+const auth = require('../middleware/verifyToken');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -8,7 +9,7 @@ router.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
   //validate user
   const { error } = validRegister(req.body);
-  if (error) return res.status(400).send(error.details[0].message, req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
   //check if user exists
   const user = await User.findOne({ email });
@@ -22,11 +23,11 @@ router.post('/register', async (req, res) => {
   const newUser = new User({
     name,
     email,
-    password: hash
+    password: hash,
   });
   try {
     const savedUser = await newUser.save();
-    res.send({ user: savedUser._id });
+    res.send('User registered!');
   } catch (err) {
     res.status(400).send(err);
   }
@@ -45,9 +46,15 @@ router.post('/login', async (req, res) => {
   if (!validPass) return res.status(400).send('Email or password is wrong');
 
   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-  res.header('auth-token', token).send(token);
+  res.header('auth-token', token);
 
-  res.send('Logged in!');
+  res.send(token);
+});
+
+router.get('/', auth, (req, res) => {
+  User.findById(req.user._id)
+    .select('-password')
+    .then((user) => res.send(user));
 });
 
 module.exports = router;

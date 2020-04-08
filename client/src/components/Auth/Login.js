@@ -10,15 +10,14 @@ import Alert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
 import axios from 'axios';
 
-class Register extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: '',
       email: '',
       password: '',
-      msg: ['', ''],
+      msg: ['Error', '400'], //object kanto
       alert: false,
     };
   }
@@ -26,18 +25,20 @@ class Register extends Component {
   onSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, password } = this.state;
+    const { email, password } = this.state;
 
     const config = { headers: { 'Content-Type': 'application/json' } };
 
-    const body = JSON.stringify({ name, email, password });
+    const body = JSON.stringify({ email, password });
 
     try {
-      const res = await axios.post('/api/user/register', body, config);
+      const res = await axios.post('/api/user/login', body, config);
+      localStorage.setItem('jwt-token', res.data);
       this.setState({
         msg: [res.data, res.status],
-        alert: true,
+        alert: false,
       });
+      this.props.handleClose();
     } catch (error) {
       if (error.response) {
         this.setState({
@@ -64,46 +65,38 @@ class Register extends Component {
           open={this.props.show}
           onClose={this.props.handleClose}
           aria-labelledby='form-dialog-title'
+          fullWidth={true}
+          maxWidth='sm'
         >
           <DialogTitle
             id='form-dialog-title'
             style={{ borderBottom: '1px solid lightgray' }}
           >
-            Register
+            Login
           </DialogTitle>
           <form onSubmit={this.onSubmit}>
             <DialogContent>
-              <Snackbar
-                open={this.state.alert}
-                autoHideDuration={3000}
-                onClose={this.handleAlert}
-                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-              >
-                <Alert
-                  severity={this.state.msg[1] === 200 ? 'success' : 'error'}
-                  variant='filled'
+              {this.state.msg[1] !== 200 ? (
+                <Snackbar
+                  open={this.state.alert}
+                  autoHideDuration={3000}
+                  onClose={this.handleAlert}
+                  anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                 >
-                  {this.state.msg[0]}
-                </Alert>
-              </Snackbar>
-              <DialogContentText style={{ paddingTop: '1em' }}>
-                To create an account, please enter your email address and your
-                password here.Then you will be able to save and log workouts and
-                much more!
+                  <Alert
+                    severity={this.state.msg[1] === 200 ? 'success' : 'error'}
+                    variant='filled'
+                  >
+                    {this.state.msg[0]}
+                  </Alert>
+                </Snackbar>
+              ) : null}
+              <DialogContentText>
+                Enter pass and email to login
               </DialogContentText>
 
               <TextField
                 autoFocus
-                margin='normal'
-                id='name'
-                label='Name'
-                type='text'
-                name='name'
-                required
-                fullWidth
-                onChange={this.onChange}
-              />
-              <TextField
                 margin='normal'
                 id='email'
                 label='Email Address'
@@ -126,7 +119,7 @@ class Register extends Component {
             </DialogContent>
             <DialogActions>
               <Button color='default' type='submit' variant='outlined'>
-                Register
+                Login
               </Button>
               <Button
                 onClick={this.props.handleClose}
@@ -144,4 +137,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Login;
