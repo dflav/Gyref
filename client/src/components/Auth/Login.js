@@ -18,11 +18,11 @@ class Login extends Component {
       email: '',
       password: '',
       msg: ['Error', '400'], //object kanto
-      alert: false,
+      alert: false
     };
   }
 
-  onSubmit = async (e) => {
+  onSubmit = async e => {
     e.preventDefault();
 
     const { email, password } = this.state;
@@ -36,22 +36,22 @@ class Login extends Component {
       localStorage.setItem('jwt-token', res.data);
       this.setState({
         msg: [res.data, res.status],
-        alert: false,
+        alert: false
       });
       this.props.handleClose();
     } catch (error) {
       if (error.response) {
         this.setState({
           msg: [error.response.data, error.response.status],
-          alert: true,
+          alert: true
         });
       }
     }
   };
 
-  onChange = (e) => {
+  onChange = e => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
   handleAlert = () => {
@@ -67,6 +67,7 @@ class Login extends Component {
           aria-labelledby='form-dialog-title'
           fullWidth={true}
           maxWidth='sm'
+          disableScrollLock={true}
         >
           <DialogTitle
             id='form-dialog-title'

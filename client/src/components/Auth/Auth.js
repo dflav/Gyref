@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
+import Profile from './Profile';
+
 class Auth extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: null,
+      user: null
     };
   }
   componentDidMount() {
@@ -15,15 +17,23 @@ class Auth extends Component {
 
     axios
       .get('api/user', { headers: { 'auth-token': jwt } })
-      .then((res) => this.setState({ user: res.data }))
-      .catch((err) => {
+      .then(res => this.setState({ user: res.data }))
+      .catch(err => {
         localStorage.removeItem('jwt-token');
         this.props.history.push('/');
       });
   }
 
   render() {
-    return <div>{this.props.children}</div>;
+    if (this.state.user === null) return <div></div>;
+    return (
+      <div>
+        <Route
+          path='/Profile'
+          render={props => <Profile {...props} user={this.state.user} />}
+        />
+      </div>
+    );
   }
 }
 

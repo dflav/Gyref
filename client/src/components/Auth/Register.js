@@ -19,11 +19,11 @@ class Register extends Component {
       email: '',
       password: '',
       msg: ['', ''],
-      alert: false,
+      alert: false
     };
   }
 
-  onSubmit = async (e) => {
+  onSubmit = async e => {
     e.preventDefault();
 
     const { name, email, password } = this.state;
@@ -36,21 +36,21 @@ class Register extends Component {
       const res = await axios.post('/api/user/register', body, config);
       this.setState({
         msg: [res.data, res.status],
-        alert: true,
+        alert: true
       });
     } catch (error) {
       if (error.response) {
         this.setState({
           msg: [error.response.data, error.response.status],
-          alert: true,
+          alert: true
         });
       }
     }
   };
 
-  onChange = (e) => {
+  onChange = e => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
   handleAlert = () => {
@@ -64,6 +64,7 @@ class Register extends Component {
           open={this.props.show}
           onClose={this.props.handleClose}
           aria-labelledby='form-dialog-title'
+          disableScrollLock={true}
         >
           <DialogTitle
             id='form-dialog-title'

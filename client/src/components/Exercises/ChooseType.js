@@ -4,10 +4,10 @@ import { Route } from 'react-router-dom';
 
 class ChooseType extends Component {
   state = {
-    menu: 'Muscles'
+    menu: 'Muscles',
   };
 
-  handleClick = menu => this.setState({ menu });
+  handleClick = (menu) => this.setState({ menu });
 
   render() {
     return (

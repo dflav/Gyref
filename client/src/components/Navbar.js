@@ -11,7 +11,7 @@ class Navbar extends Component {
       animation: false,
       showLogin: false,
       showRegister: false,
-      logged_in: false,
+      logged_in: false
     };
   }
 
@@ -25,19 +25,19 @@ class Navbar extends Component {
   }
 
   handleChange = () => {
-    this.setState((prevState) => ({
-      animation: !prevState.animation,
+    this.setState(prevState => ({
+      animation: !prevState.animation
     }));
   };
 
   handleRegister = () => {
-    this.setState((prevState) => ({
-      showRegister: !prevState.showRegister,
+    this.setState(prevState => ({
+      showRegister: !prevState.showRegister
     }));
   };
   handleLogin = () => {
-    this.setState((prevState) => ({
-      showLogin: !prevState.showLogin,
+    this.setState(prevState => ({
+      showLogin: !prevState.showLogin
     }));
 
     if (this.state.showLogin === false) {
@@ -77,7 +77,7 @@ class Navbar extends Component {
                   to='/'
                   activeStyle={{
                     fontWeight: 'bold',
-                    color: '#0088a9',
+                    color: '#0088a9'
                   }}
                 >
                   Home
@@ -89,7 +89,7 @@ class Navbar extends Component {
                   to='/Workouts'
                   activeStyle={{
                     fontWeight: 'bold',
-                    color: '#0088a9',
+                    color: '#0088a9'
                   }}
                 >
                   Workouts
@@ -100,7 +100,7 @@ class Navbar extends Component {
                   to='/Exercises'
                   activeStyle={{
                     fontWeight: 'bold',
-                    color: '#0088a9',
+                    color: '#0088a9'
                   }}
                 >
                   Exercises
