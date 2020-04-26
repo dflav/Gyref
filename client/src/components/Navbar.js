@@ -111,23 +111,21 @@ class Navbar extends Component {
                   <li className='item button' onClick={this.handleLogin}>
                     <NavLink to='#'>Login</NavLink>
                   </li>
-                  <li
-                    className='item button secondary'
-                    onClick={this.handleRegister}
-                  >
-                    <NavLink to='#'>Sing Up</NavLink>
+                  <li className='item button secondary'>
+                    <NavLink to='#' onClick={this.handleRegister}>
+                      Sing Up
+                    </NavLink>
                   </li>
                 </>
               ) : (
                 <>
                   <li className='item button'>
-                    <NavLink to='/Profile'>Profile</NavLink>
+                    <NavLink to='/Profile/My-Routines'>Profile</NavLink>
                   </li>
-                  <li
-                    className='item button secondary'
-                    onClick={this.handleLogout}
-                  >
-                    <NavLink to='/'>Log out</NavLink>
+                  <li className='item button secondary'>
+                    <NavLink to='/' onClick={this.handleLogout}>
+                      Log out
+                    </NavLink>
                   </li>
                 </>
               )}

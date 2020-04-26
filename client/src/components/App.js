@@ -35,7 +35,7 @@ class App extends Component {
               component={ExerciseDetails}
             />
             <Route path='/Workouts' component={Workouts} />
-            <Route path='/Profile' component={Auth} />
+            <Route path='/Profile/:id' component={Auth} />
             <Redirect from='/:id' to='/' />
           </Switch>
           {/* <footer>

@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter, Route } from 'react-router-dom';
-import Profile from './Profile';
+import Profile from './Profile/Profile';
 
 class Auth extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    user: null
+  };
 
-    this.state = {
-      user: null
-    };
-  }
   componentDidMount() {
     const jwt = localStorage.getItem('jwt-token');
-    if (!jwt) this.props.history.push('/');
+    if (!jwt) {
+      this.props.history.push('/');
+    }
 
     axios
-      .get('api/user', { headers: { 'auth-token': jwt } })
+      .get('/api/user', { headers: { 'auth-token': jwt } })
       .then(res => this.setState({ user: res.data }))
       .catch(err => {
         localStorage.removeItem('jwt-token');
@@ -25,11 +24,16 @@ class Auth extends Component {
   }
 
   render() {
-    if (this.state.user === null) return <div></div>;
+    if (this.state.user === null)
+      return (
+        <div style={{ textAlign: 'center' }}>
+          <h1>Loading...</h1>
+        </div>
+      );
     return (
       <div>
         <Route
-          path='/Profile'
+          path='/Profile/:id'
           render={props => <Profile {...props} user={this.state.user} />}
         />
       </div>
