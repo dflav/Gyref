@@ -17,7 +17,9 @@ class Logs extends Component {
     date: new Date(),
     exercise: '',
     exercise_type: 'All',
-    sets: 1
+    sets: 3,
+    kg: [],
+    reps: []
   };
   // componentDidMount() {
   //   axios.get('/users').then(res => {
@@ -39,6 +41,8 @@ class Logs extends Component {
 
   onChangeDate = date => this.setState({ date });
 
+  onChangeSets = sets => this.setState({});
+
   onChangeExercise = event => this.setState({ exercise: event.target.value });
 
   onChangeExerciseType = event =>
@@ -53,7 +57,9 @@ class Logs extends Component {
       name: this.state.exercise,
       description: this.state.description,
       duration: this.state.duration,
-      date: this.state.date
+      date: this.state.date,
+      sets: this.state.sets,
+      reps: this.stae.reps
     };
 
     console.log(exercise);
@@ -95,12 +101,19 @@ class Logs extends Component {
 
     for (let i = 0; i < this.state.sets; i++) {
       sets.push(
-        <>
+        <div className='sets' key={i}>
           <label>Set {i + 1} : </label>
-          <input required type='text' />
-          <label>Reps</label>
+          <input required type='text' name='kg' onChange={this.onChangeSets} />
+          <label> Kg </label>
+          <input
+            required
+            type='text'
+            name='reps'
+            onChange={this.onChangeSets}
+          />
+          <label> Reps</label>
           <br />
-        </>
+        </div>
       );
     }
 
