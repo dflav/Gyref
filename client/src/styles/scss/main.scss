@@ -10,15 +10,19 @@
 }
 
 body,
-html,
 #root {
   height: 100%;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   line-height: 1.5;
   font-family: 'Montserrat', sans-serif;
   padding-top: 100px;
+  margin: 0 0 160px;
 }
 
 .bg {
@@ -31,7 +35,7 @@ body {
 }
 
 footer {
-  position: relative;
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;

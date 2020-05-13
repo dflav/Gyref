@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const authRoute = require('./routes/auth');
+const logs = require('./routes/logs');
 
 dotenv.config({ path: './config/.env' });
 
@@ -21,5 +22,6 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use('/api/user', authRoute);
+app.use('/api/user/logs', logs);
 
 app.listen(port, () => console.log(`Server started on port ${port}...`));

@@ -4,7 +4,7 @@ import MenuList from '@material-ui/core/MenuList';
 import Paper from '@material-ui/core/Paper';
 import { Route, Link, Redirect, Switch } from 'react-router-dom';
 import Routines from './Routines';
-import Logs from './Logs';
+import Logs from './Logs/Logs';
 
 class Profile extends Component {
   state = {

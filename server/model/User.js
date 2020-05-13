@@ -1,5 +1,19 @@
 const mongoose = require('mongoose');
 
+const logSchema = new mongoose.Schema({
+  exercise: { type: String },
+  description: { type: String },
+  duration: { type: Number },
+  date: { type: Date },
+  sets: { type: Number },
+  entries: [
+    {
+      kg: { type: Number },
+      reps: { type: Number }
+    }
+  ]
+});
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -20,7 +34,8 @@ const userSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  logs: [logSchema]
 });
 
 module.exports = mongoose.model('User', userSchema);

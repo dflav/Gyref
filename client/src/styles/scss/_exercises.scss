@@ -123,6 +123,7 @@
       transition: ease(all);
       max-height: 220px;
       background: $nav-bg-color;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       overflow: hidden;
 
       &:hover {

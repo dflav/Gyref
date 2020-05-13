@@ -38,11 +38,11 @@ class App extends Component {
             <Route path='/Profile/:id' component={Auth} />
             <Redirect from='/:id' to='/' />
           </Switch>
-          {/* <footer>
+          <footer>
             <div>
               &copy; 2020 Copyright: <span>Flavio Dollani</span>
             </div>
-          </footer> */}
+          </footer>
         </Router>
       </>
     );
