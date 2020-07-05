@@ -15,7 +15,7 @@ class Logs extends Component {
 
     return (
       <>
-        <div className='tab-container'>
+        <div className='tab-container-logs'>
           <div className='button-container'>
             <button
               onClick={() => this.showPanel(0, 'view')}

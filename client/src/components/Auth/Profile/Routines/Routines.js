@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ViewWorkouts from './ViewWorkouts';
+import ManageWorkouts from './ManageWorkouts';
 
 class Routines extends Component {
   state = { tab: 0, label: 'view' };
@@ -9,7 +11,7 @@ class Routines extends Component {
     const isSelected = this.state.label === 'view';
     return (
       <>
-        <div className='tab-container'>
+        <div className='tab-container-routines'>
           <div className='button-container'>
             <button
               onClick={() => this.showPanel(0, 'view')}
@@ -21,7 +23,7 @@ class Routines extends Component {
               onClick={() => this.showPanel(1, 'create')}
               className={isSelected ? null : 'active'}
             >
-              Create Workout
+              Manage Workouts
             </button>
           </div>
           <div
@@ -30,7 +32,7 @@ class Routines extends Component {
               display: `${this.state.tab === 0 ? 'block' : 'none'}`
             }}
           >
-            Tab1: Content
+            <ViewWorkouts />
           </div>
           <div
             className='tab-panel'
@@ -38,7 +40,7 @@ class Routines extends Component {
               display: `${this.state.tab === 1 ? 'block' : 'none'}`
             }}
           >
-            Tab2: Content
+            <ManageWorkouts />
           </div>
         </div>
       </>

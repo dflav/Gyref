@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import { exercises } from '../../../../constants/data';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -85,15 +84,15 @@ class CreateLog extends Component {
     );
 
     const all = exercises.map((item, index) => (
-      <MenuItem value={item.name} key={index}>
+      <option value={item.name} key={index}>
         {item.name}
-      </MenuItem>
+      </option>
     ));
 
     const choosen = options.map((item, index) => (
-      <MenuItem value={item.name} key={index}>
+      <option value={item.name} key={index}>
         {item.name}
-      </MenuItem>
+      </option>
     ));
 
     return (
@@ -110,16 +109,14 @@ class CreateLog extends Component {
                 value={this.state.exercise_type}
                 onChange={this.onChangeExerciseType}
                 fullWidth
+                native
               >
-                <MenuItem value='' disabled>
-                  Select Exercise Type
-                </MenuItem>
-                <MenuItem value='All'>All</MenuItem>
-                <MenuItem value='Chest'>Chest</MenuItem>
-                <MenuItem value='Shoulders'>Shoulders</MenuItem>
-                <MenuItem value='Back'>Back</MenuItem>
-                <MenuItem value='Favorites'>Favorites</MenuItem>
-                <MenuItem value='Costum'>Costum</MenuItem>
+                <option value='All'>All</option>
+                <option value='Chest'>Chest</option>
+                <option value='Shoulders'>Shoulders</option>
+                <option value='Back'>Back</option>
+                <option value='Favorites'>Favorites</option>
+                <option value='Costum'>Costum</option>
               </Select>
             </FormControl>
 
@@ -130,10 +127,9 @@ class CreateLog extends Component {
                 value={this.state.exercise}
                 onChange={this.onChangeExercise}
                 fullWidth
+                native
               >
-                <MenuItem value='' disabled>
-                  Select Exercise
-                </MenuItem>
+                <option aria-label='None' value='' />
                 {this.state.exercise_type === 'All' ? all : choosen}
               </Select>
             </FormControl>

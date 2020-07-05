@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const authRoute = require('./routes/auth');
 const logs = require('./routes/logs');
+const routines = require('./routes/routines');
 
 dotenv.config({ path: './config/.env' });
 
@@ -23,5 +24,6 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/user', authRoute);
 app.use('/api/user/logs', logs);
+app.use('/api/user/routines', routines);
 
 app.listen(port, () => console.log(`Server started on port ${port}...`));
